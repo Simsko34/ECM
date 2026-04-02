@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECM Final Exam — Master Revision Sheet v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+  :root{--bg:#0d0f14;--bg2:#131620;--bg3:#1a1e2e;--bg4:#212640;--border:#2d3352;--accent:#4f8ef7;--accent2:#34d4a4;--accent3:#f7c24f;--accent4:#f76f6f;--text:#e8ecf5;--text2:#8892b0;--text3:#5a6280;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13.5px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(13,15,20,0.97);border-bottom:1px solid var(--border);display:flex;gap:3px;padding:8px 16px;overflow-x:auto;white-space:nowrap;backdrop-filter:blur(8px);}
+  nav button{background:transparent;border:1px solid var(--border);color:var(--text2);cursor:pointer;border-radius:4px;padding:5px 11px;font-family:var(--mono);font-size:11px;transition:all .15s;}
+  nav button:hover,nav button.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .page{display:none;padding:28px 22px 60px;max-width:960px;margin:0 auto;}
+  .page.active{display:block;}
+  h1{font-size:24px;font-weight:600;color:var(--accent);letter-spacing:-.3px;margin-bottom:4px;}
+  h2{font-size:15px;font-weight:600;color:var(--accent2);text-transform:uppercase;letter-spacing:.8px;margin:28px 0 10px;border-bottom:1px solid var(--border);padding-bottom:6px;}
+  h3{font-size:13px;font-weight:600;color:var(--accent3);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px;}
+  h4{font-size:13px;font-weight:600;color:var(--text);margin:12px 0 5px;}
+  p{color:var(--text);margin-bottom:8px;}
+  .sub{color:var(--text2);font-size:12px;margin-bottom:18px;}
+  strong{color:var(--text);font-weight:600;}
+  em{color:var(--accent3);font-style:normal;font-weight:500;}
+  ul,ol{padding-left:18px;margin-bottom:10px;}
+  li{color:var(--text2);margin-bottom:5px;line-height:1.6;}
+  li strong{color:var(--text);}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:14px;}
+  .card.accent{border-left:3px solid var(--accent);}
+  .card.green{border-left:3px solid var(--accent2);}
+  .card.yellow{border-left:3px solid var(--accent3);}
+  .card.red{border-left:3px solid var(--accent4);}
+  .card.dark{background:var(--bg3);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+  @media(max-width:660px){.grid2,.grid3{grid-template-columns:1fr;}}
+  .formula{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:11px 16px;margin:10px 0;font-family:var(--mono);font-size:13px;color:var(--accent2);overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12.5px;}
+  th{background:var(--bg3);color:var(--accent);padding:8px 10px;text-align:left;font-weight:600;border-bottom:1px solid var(--border);font-size:12px;}
+  td{padding:7px 10px;border-bottom:1px solid rgba(45,51,82,.5);color:var(--text2);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:rgba(26,30,46,.6);color:var(--text);}
+  .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-family:var(--mono);font-weight:600;margin:2px;}
+  .tag.blue{background:rgba(79,142,247,.15);color:var(--accent);border:1px solid rgba(79,142,247,.3);}
+  .tag.green{background:rgba(52,212,164,.12);color:var(--accent2);border:1px solid rgba(52,212,164,.25);}
+  .tag.yellow{background:rgba(247,194,79,.12);color:var(--accent3);border:1px solid rgba(247,194,79,.25);}
+  .tag.red{background:rgba(247,111,111,.12);color:var(--accent4);border:1px solid rgba(247,111,111,.25);}
+  .steps{list-style:none;padding:0;}
+  .steps li{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+  .step-num{min-width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .step-txt{flex:1;}
+  .timeline{position:relative;padding-left:22px;}
+  .timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--border);}
+  .tl-item{position:relative;margin-bottom:18px;padding-left:18px;}
+  .tl-item::before{content:'';position:absolute;left:-15px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+  .tl-label{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+  .tl-head{font-weight:600;color:var(--text);margin-bottom:4px;}
+  .tl-body{color:var(--text2);font-size:13px;}
+  .intuition{border:1px dashed rgba(247,194,79,.4);background:rgba(247,194,79,.05);border-radius:6px;padding:10px 14px;margin:10px 0;font-size:12.5px;color:var(--accent3);}
+  .intuition::before{content:'⚡ Intuition: ';font-weight:600;}
+  .warn{border:1px dashed rgba(247,111,111,.4);background:rgba(247,111,111,.05);border-radius:6px;padding:10px 14px;margin:10px 0;font-size:12.5px;color:var(--accent4);}
+  .warn::before{content:'⚠ Exam Trap: ';font-weight:600;}
+  .note{border:1px dashed rgba(52,212,164,.3);background:rgba(52,212,164,.04);border-radius:6px;padding:10px 14px;margin:10px 0;font-size:12.5px;color:var(--accent2);}
+  .note::before{content:'📌 Key Point: ';font-weight:600;}
+  .num-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:12px 0;}
+  .num-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;}
+  .num-val{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);}
+  .num-label{font-size:11px;color:var(--text2);margin-top:3px;}
+  .qcm-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:14px;}
+  .qcm-q{font-weight:500;margin-bottom:10px;color:var(--text);font-size:13.5px;line-height:1.6;}
+  .qcm-opts{display:flex;flex-direction:column;gap:5px;}
+  .qcm-opt{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 12px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .15s;display:flex;align-items:flex-start;gap:10px;}
+  .qcm-opt:hover{border-color:var(--accent);color:var(--text);}
+  .qcm-opt.correct{background:rgba(52,212,164,.12);border-color:var(--accent2);color:var(--accent2);}
+  .qcm-opt.wrong{background:rgba(247,111,111,.1);border-color:var(--accent4);color:var(--accent4);}
+  .opt-label{font-family:var(--mono);font-size:11px;font-weight:600;min-width:18px;margin-top:1px;}
+  .qcm-explain{margin-top:10px;font-size:12.5px;color:var(--accent2);background:rgba(52,212,164,.07);border-radius:5px;padding:10px 14px;display:none;line-height:1.6;}
+  .qcm-explain.show{display:block;}
+  .cheat-title{font-family:var(--mono);font-size:11px;color:var(--accent3);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 6px;}
+  .cheat-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(45,51,82,.4);font-size:12.5px;gap:16px;}
+  .cheat-key{color:var(--text2);flex-shrink:0;}
+  .cheat-val{font-family:var(--mono);color:var(--accent2);text-align:right;}
+  .role-badge{display:inline-block;padding:3px 9px;border-radius:4px;font-size:11px;font-family:var(--mono);font-weight:600;}
+  .role-gc{background:rgba(79,142,247,.15);color:var(--accent);border:1px solid rgba(79,142,247,.3);}
+  .role-synd{background:rgba(52,212,164,.12);color:var(--accent2);border:1px solid rgba(52,212,164,.25);}
+  .role-res{background:rgba(247,194,79,.12);color:var(--accent3);border:1px solid rgba(247,194,79,.25);}
+  .role-law{background:rgba(247,111,111,.12);color:var(--accent4);border:1px solid rgba(247,111,111,.25);}
+  .dtree{font-family:var(--mono);font-size:12.5px;}
+  .dt-q{color:var(--accent3);font-weight:600;margin:10px 0 5px;}
+  .dt-branch{margin-left:18px;border-left:1px solid var(--border);padding-left:14px;margin-bottom:6px;}
+  .dt-yes{color:var(--accent2);}
+  .dt-no{color:var(--accent4);}
+  .dt-ans{color:var(--text);font-weight:600;background:var(--bg3);display:inline-block;padding:2px 9px;border-radius:4px;margin-top:2px;}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:11.5px;margin:3px 3px;}
+  .pill-dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+  .highlight-box{background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(52,212,164,.06));border:1px solid rgba(79,142,247,.2);border-radius:8px;padding:16px 18px;margin:14px 0;}
+  details{margin-bottom:8px;}
+  details summary{cursor:pointer;color:var(--accent);font-weight:500;padding:6px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  details summary::before{content:'▶';font-size:10px;transition:transform .2s;color:var(--text3);}
+  details[open] summary::before{transform:rotate(90deg);}
+  details .detail-body{padding:10px 0 4px 18px;color:var(--text2);}
+  .actor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:10px 0;}
+  .actor-card{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;}
+  .actor-title{font-weight:600;color:var(--text);margin-bottom:4px;font-size:13px;}
+  .actor-sub{font-size:12px;color:var(--text3);margin-bottom:6px;}
+  .actor-body{font-size:12.5px;color:var(--text2);}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="active" onclick="show('s0',this)">0 · Executive Summary</button>
+  <button onclick="show('s1',this)">1 · Why Go Public</button>
+  <button onclick="show('s2',this)">2 · IPO Process</button>
+  <button onclick="show('s3',this)">3 · Bookbuilding &amp; Pricing</button>
+  <button onclick="show('s4',this)">4 · Follow-on Offerings</button>
+  <button onclick="show('s5',this)">5 · Rights Issues</button>
+  <button onclick="show('s6',this)">6 · Key Numbers</button>
+  <button onclick="show('s7',this)">7 · QCM Training</button>
+  <button onclick="show('s8',this)">8 · Cheat Sheet</button>
+</nav>
+
+<!-- ═══════════════════════════════ PAGE 0 ═══════════════════════════════ -->
+<div id="s0" class="page active">
+  <h1>ECM — Master Revision Sheet</h1>
+  <p class="sub">Final Exam Edition · Built exclusively from Modules 1–5 · 8 chapters</p>
+
+  <h2>The Complete ECM Logic — How Everything Connects</h2>
+  <div class="card accent">
+    <p>ECM — <em>Equity Capital Markets</em> — is the division of investment banking that helps companies and shareholders access public equity markets. Every ECM transaction, from an IPO to a convertible bond, is built on the same fundamental logic: <strong>match the capital needs of an issuer with the return expectations of investors</strong>, at the right price, through the right structure, at the right moment.</p>
+    <p style="margin-top:8px;">The journey starts with the <strong>IPO</strong>: a private company opens its capital to public investors for the first time. The IPO process is long (4–6 months), involves dozens of actors, and culminates in a bookbuilding exercise that aggregates investor demand to set a clearing price. The IPO discount (5–15%) rewards investors for taking risk on an unproven listed company and creates aftermarket momentum.</p>
+    <p style="margin-top:8px;">Once listed, the company can return to capital markets via <strong>follow-on offerings</strong>. If the <em>company</em> needs cash, it launches a <strong>primary offering</strong> — either a rights issue (pre-emptive, large, underwritten, 10–30% discount) or a direct placing (faster, no pre-emption, ≤10% discount). If a <em>shareholder</em> wants to exit, it sells existing shares via a <strong>secondary offering</strong> — as a bought deal (bank takes the risk overnight), an ABB (best-efforts overnight), or a marketed offering (roadshow for large exits).</p>
+    <p style="margin-top:8px;"><strong>Equity-linked instruments</strong> (convertible bonds, mandatory convertibles) sit between debt and equity, letting companies raise capital at a lower cash cost than straight equity, while giving investors an option on the upside. The <strong>equity story</strong> — the narrative of why a company is a great investment — underpins every transaction throughout the company's public life.</p>
+  </div>
+
+  <h2>The Master Map</h2>
+  <div class="grid2">
+    <div class="card green">
+      <h3>Transaction Types — At a Glance</h3>
+      <p><strong>IPO</strong> → First listing, price discovery, primary and/or secondary</p>
+      <p><strong>Rights Issue</strong> → Primary, pre-emptive, large, underwritten, big discount</p>
+      <p><strong>Direct Placing</strong> → Primary, no pre-emption, fast, ABB or bought deal</p>
+      <p><strong>Secondary ABB</strong> → Selling shareholder exits overnight, soft UW</p>
+      <p><strong>Bought Deal</strong> → Bank buys entire block before finding buyers</p>
+      <p><strong>Marketed Offering</strong> → Large exit, roadshow, management involved</p>
+      <p><strong>CB / EB</strong> → Bond + optional equity conversion at premium</p>
+      <p><strong>MCB / MEB</strong> → Mandatory equity conversion at maturity</p>
+    </div>
+    <div class="card yellow">
+      <h3>The Exam's Core Questions</h3>
+      <p>→ Calculate TERP and right value from given data</p>
+      <p>→ Find clearing price and proration in open price offers</p>
+      <p>→ Identify primary vs. secondary in a scenario</p>
+      <p>→ Choose the right format: rights issue vs. placing</p>
+      <p>→ Distinguish ABB vs. bought deal vs. marketed</p>
+      <p>→ Explain why the rights issue discount is "neutral"</p>
+      <p>→ Describe CB vs. MCB structure and rationale</p>
+      <p>→ Trace the full IPO process with actors and timing</p>
+    </div>
+  </div>
+
+  <h2>Chapter Navigation</h2>
+  <div class="grid3" style="font-size:12.5px;">
+    <div class="card dark"><span class="tag blue">Ch. 1</span> Why companies go public — 3 categories of reasons, 8 equity story components</div>
+    <div class="card dark"><span class="tag blue">Ch. 2</span> Full IPO process — timeline, all actors, Chinese wall, roles</div>
+    <div class="card dark"><span class="tag blue">Ch. 3</span> Bookbuilding, pricing, open price offer, greenshoe mechanics</div>
+    <div class="card dark"><span class="tag green">Ch. 4</span> Follow-on offerings — primary vs. secondary, all formats compared</div>
+    <div class="card dark"><span class="tag green">Ch. 5</span> Rights issues — TERP, right value, 3 strategies, neutrality proof</div>
+    <div class="card dark"><span class="tag yellow">Ch. 6</span> All key numbers with explanations</div>
+    <div class="card dark"><span class="tag yellow">Ch. 7</span> 12 hard QCM questions — interactive with explanations</div>
+    <div class="card dark"><span class="tag red">Ch. 8</span> Cheat sheet — formulas, distinctions, mnemonics</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 1 ═══════════════════════════════ -->
+<div id="s1" class="page">
+  <h1>Chapter 1 — Why Go Public &amp; The Equity Story</h1>
+  <p class="sub">Module 1 · Introduction to ECM</p>
+
+  <h2>I. Why Go Public? — Three Categories of Reasons</h2>
+
+  <div class="card accent">
+    <h3>A — Financing for the Company</h3>
+    <ul>
+      <li><strong>Raise cash for growth:</strong> An IPO provides fresh capital to expand operations — either organically (new factories, R&D, geographic expansion) or externally (acquisitions). This is the most direct financial motive.</li>
+      <li><strong>Use stock as M&A currency:</strong> Once a company is publicly traded, its shares have a market price and can be used directly as payment to acquire other companies. This is far more flexible than cash financing — no need to raise debt or use treasury funds.</li>
+      <li><strong>Diversify financing sources:</strong> Public companies can issue equity-linked instruments (e.g., convertible bonds) as alternatives to pure debt, giving them more tools to optimize their capital structure and cost of capital.</li>
+      <li><strong>Balance sheet strengthening:</strong> In difficult times (leverage too high, covenant risk), a rights issue or direct placing allows the company to inject equity rapidly, reduce debt, and stabilize the business. This is a defensive but critical use case (see Technicolor case study, Module 4).</li>
+    </ul>
+    <div class="intuition">Timing is key: companies should go public when market conditions are favorable (high valuations, low volatility, investor appetite), not when they urgently need money — the latter signals distress and depresses the valuation.</div>
+  </div>
+
+  <div class="card green">
+    <h3>B — Shareholding Management</h3>
+    <ul>
+      <li><strong>Liquidity exit for existing shareholders:</strong> Founders, family shareholders, and private equity funds that have been invested for years need a path to monetize their stakes. An IPO (secondary component) or subsequent follow-on gives them this exit at a transparent market price.</li>
+      <li><strong>Diversify the shareholder base:</strong> Concentrated ownership (one family or one PE fund owning 80%+) creates governance risks and potential conflicts of interest. A diversified base of institutional investors (long-only funds, pension funds, sovereign wealth funds) provides more balanced oversight and support.</li>
+      <li><strong>Attract anchor/strategic investors:</strong> An IPO can be structured to bring in industrial partners or long-term institutions (e.g., Caisse des Dépôts in the Veolia rights issue) as anchor investors who act as long-term stability providers.</li>
+    </ul>
+    <div class="note">In the Allfunds IPO (Module 2 case study), the offering was 100% secondary — Hellman &amp; Friedman, BNP Paribas Securities Services, and Credit Suisse all sold existing shares. No cash went to Allfunds. Classic PE exit via IPO.</div>
+  </div>
+
+  <div class="card yellow">
+    <h3>C — Visibility and Governance</h3>
+    <ul>
+      <li><strong>Reputation and index inclusion:</strong> Being listed on a major exchange (Euronext, LSE) and eventually included in major indices (CAC 40, EURO STOXX 50) dramatically increases a company's visibility with investors worldwide. This lowers the cost of capital over time.</li>
+      <li><strong>Research coverage:</strong> Post-IPO, equity analysts from the underwriting banks and independent firms publish research reports with valuations, price targets, and buy/sell/hold recommendations. This keeps the company in front of institutional investors constantly.</li>
+      <li><strong>The "Mirror Effect":</strong> The stock price acts as a daily verdict on management performance. It creates discipline: if the stock underperforms, management faces pressure from the board, analysts, and potentially activist investors. This is fundamentally different from a private company where there is no such external accountability mechanism.</li>
+      <li><strong>Governance upgrade:</strong> Listing requires independent board members and the creation of key committees: audit committee (financial controls), strategy committee (long-term direction), and compensation committee (management pay). KPIs must be disclosed publicly. This forces management rigor.</li>
+      <li><strong>Talent attraction and retention:</strong> Listed companies can offer stock options and free shares (actions gratuites in France) as compensation tools. This is critical for attracting top talent — particularly in tech and finance — and aligning employee interests with shareholders.</li>
+      <li><strong>Equal treatment of shareholders:</strong> All shareholders — retail, employee, institutional — must receive the same information through the same channels simultaneously. Management cannot give privileged access to one investor category.</li>
+    </ul>
+  </div>
+
+  <h2>II. Listing Venues — Where to List?</h2>
+  <div class="card">
+    <table>
+      <tr><th>Market</th><th>Target</th><th>Free Float Req.</th><th>Financials Required</th><th>Avg. Market Cap at IPO</th></tr>
+      <tr><td><strong>Euronext (Main)</strong></td><td>Large/mid-caps, international</td><td>≥25% or ≥5% and €5m</td><td>3 years audited, IFRS</td><td>€240m</td></tr>
+      <tr><td><strong>Euronext Growth</strong></td><td>SMEs</td><td>€2.5m free float</td><td>2 years audited</td><td>€85m</td></tr>
+      <tr><td><strong>Euronext Access</strong></td><td>Small caps, early stage</td><td>€1m</td><td>2 years (1 audited)</td><td>€31m</td></tr>
+    </table>
+    <div class="note">The regulator (AMF in France) conducts due diligence on: rationale for listing, business model, financials (cash flows, P&L, balance sheet, projections), key risks, and compliance/AML checks on key managers, board members, and beneficial owners (UBOs).</div>
+  </div>
+
+  <h2>III. The Equity Story — 8 Components (Exam Critical)</h2>
+  <p>The equity story is the <em>central narrative</em> that management presents to investors throughout the IPO process and maintains throughout the company's life as a public company. It must be clear, consistent, credible, and differentiated. It answers the investor's core question: <em>"Why should I own this stock and not another?"</em></p>
+
+  <div class="card accent">
+    <h3>01 — Message from Chairman / Founder / Management Team</h3>
+    <p>This is the opening statement — the "why we exist and why now is the right time to go public." It sets the tone and signals commitment. Founders and CEOs who personally champion the equity story are more credible than those who seem reluctant. It includes the company's vision, mission, strategic direction for the next 3–5 years, and why listing serves this ambition. <strong>Exam logic:</strong> this is the trust-building element — it signals alignment between management and shareholders.</p>
+  </div>
+  <div class="card accent">
+    <h3>02 — Key Performance Indicators (KPIs)</h3>
+    <p>KPIs are the quantitative metrics that investors and analysts use to monitor and forecast the company's performance. They must accurately reflect the business model — not generic accounting metrics, but metrics specific to the sector (e.g., ARPU for telecoms, RevPAR for hotels, AuA for asset managers). They are defined at the time of the IPO and must be maintained consistently post-listing. <strong>Exam logic:</strong> KPIs are how analysts build financial models and set price targets. Poor KPI design → mispricing → volatility → loss of investor trust.</p>
+  </div>
+  <div class="card accent">
+    <h3>03 — Financial Communications</h3>
+    <p>The structured, regular disclosure of financial results: quarterly trading updates, semi-annual results, annual reports. After the IPO, the company must maintain a continuous and transparent dialogue with the market. This includes earnings calls, investor days, and one-on-one meetings with fund managers. All shareholders must receive identical information simultaneously (no selective disclosure). <strong>Exam logic:</strong> the quality of financial communication directly affects the stock's liquidity premium and analyst coverage quality.</p>
+  </div>
+  <div class="card accent">
+    <h3>04 — Legal and Regulatory Information</h3>
+    <p>Disclosure of all material legal, regulatory, and compliance information that could affect the investment case: pending litigation, regulatory investigations, environmental liabilities, intellectual property disputes, antitrust issues, and sector-specific regulations (e.g., healthcare licensing, banking regulation). The prospectus dedicates a full section to risk factors covering all of these. <strong>Exam logic:</strong> investors need this to price risk correctly. Undisclosed risks create legal liability for the company and its bankers.</p>
+  </div>
+  <div class="card accent">
+    <h3>05 — Corporate Governance</h3>
+    <p>The structure of the board of directors, the proportion of independent directors, the existence and composition of key committees (audit, compensation, strategy), and management's shareholding post-IPO. Good governance reduces information asymmetry and agency costs. Lock-up agreements — where major shareholders commit not to sell for 6–18 months post-IPO — are also disclosed here and signal long-term commitment. <strong>Exam logic:</strong> institutional investors (especially ESG-focused funds) will not invest in companies with governance red flags.</p>
+  </div>
+  <div class="card accent">
+    <h3>06 — Share Profile</h3>
+    <p>The key technical characteristics of the listed stock: free float (% of shares available for trading), liquidity (expected daily trading volume), market cap, share price range, and shareholder structure post-IPO. A low free float means poor liquidity, which reduces institutional investor interest (they cannot build a meaningful position without moving the price). <strong>Exam logic:</strong> free float determines which indices the company can join (minimum 25% for Euronext main) and how easily analysts can take positions.</p>
+  </div>
+  <div class="card accent">
+    <h3>07 — Key Dates / Financial Events</h3>
+    <p>The financial calendar: dates of results publications, analyst days, AGM, dividend payments, and lock-up expiry dates. Lock-up expiry is particularly important — when a major shareholder's lock-up expires, the market anticipates potential selling pressure (called "overhang"), which can depress the stock. <strong>Exam logic:</strong> the timing of follow-on transactions is often driven by lock-up expirations and the financial calendar.</p>
+  </div>
+  <div class="card accent">
+    <h3>08 — Sustainability Mission (ESG)</h3>
+    <p>Environmental, Social, and Governance metrics and commitments. ESG is no longer optional for listed companies — it is required by an increasingly large pool of institutional investors (especially in Europe) and mandated by evolving regulation (CSRD in Europe). Companies must define a corporate ESG strategy, identify key ESG challenges, set KPIs for their commitments, and publish regular sustainability reports. <strong>Exam logic:</strong> ESG has been shown to have a non-negative impact on firm performance in 90% of cases (Bassen et al., 2015). It is a must-have for accessing long-term institutional capital.</p>
+    <div class="note">Key ESG advice from slides: define your ESG strategy linked to corporate strategy → identify challenges → apply operational commitments and KPIs → disclose sustainability reports → engage stakeholders.</div>
+  </div>
+
+  <h2>IV. ECM Team Structure — Who Does What?</h2>
+  <div class="actor-grid">
+    <div class="actor-card">
+      <div class="actor-title"><span class="role-badge role-gc">Global Coordinator / Lead Underwriter</span></div>
+      <div class="actor-sub">ECM Bankers — Origination</div>
+      <div class="actor-body">The "deal captain." Pitches the company on the IPO concept. Advises on valuation, equity story, structure. Manages the entire process. Helps decide price range. Leads the syndicate. Bears the primary reputational and financial risk of the deal.</div>
+    </div>
+    <div class="actor-card">
+      <div class="actor-title"><span class="role-badge role-synd">Equity Syndication Desk</span></div>
+      <div class="actor-sub">Syndicate — Execution</div>
+      <div class="actor-body">Maintains relationships with institutional investors who ultimately buy the shares. Runs the bookbuilding, collects orders, monitors demand. Decides allocation (who gets how many shares). Ensures post-IPO price stability. Distinct from origination — they are market-facing.</div>
+    </div>
+    <div class="actor-card">
+      <div class="actor-title"><span class="role-badge role-res">Equity Research Analysts</span></div>
+      <div class="actor-sub">Research — "Brought over the Chinese Wall"</div>
+      <div class="actor-body">During the IPO, analysts are temporarily brought over the Chinese Wall (see below) to assist. They write the pre-deal research report with an independent valuation and peer comparables. This report is distributed to institutional investors during PDIE. They do NOT attend PDIE meetings with management — independence is critical.</div>
+    </div>
+    <div class="actor-card">
+      <div class="actor-title"><span class="role-badge role-law">Lawyers &amp; Auditors</span></div>
+      <div class="actor-sub">Legal / Accounting</div>
+      <div class="actor-body">Lawyers draft the prospectus (Universal Registration Document + Offering Document). Auditors verify financial statements (3 years for Euronext main). Both conduct due diligence sessions. They protect the company and the bankers from legal liability from false or misleading disclosures.</div>
+    </div>
+  </div>
+
+  <div class="card yellow" style="margin-top:12px;">
+    <h3>The Chinese Wall — Critical Concept</h3>
+    <p>The <em>Chinese Wall</em> (also called "information barrier") is a regulatory and internal compliance mechanism that separates the <strong>public side</strong> of an investment bank from the <strong>private side</strong>. This is a critical concept for the exam.</p>
+    <ul>
+      <li><strong>Private side (inside the wall):</strong> ECM bankers, M&amp;A bankers, and anyone working on a deal with access to material non-public information (MNPI) about the issuer. During an IPO preparation, these bankers know everything about the company's financials, strategy, and upcoming offering before it is disclosed to the public.</li>
+      <li><strong>Public side (outside the wall):</strong> Equity research analysts, sales teams, and traders who interact with the public market. They cannot have access to MNPI because if they did, they could trade on it (insider trading) or leak it to clients (market abuse).</li>
+      <li><strong>"Brought over the Chinese Wall":</strong> During an IPO process, equity research analysts are exceptionally brought to the private side to help draft the pre-deal research report. At this point, they become "restricted" — they cannot publish research or talk to investor clients about the stock until the deal closes and restrictions lift.</li>
+      <li><strong>Why this matters:</strong> The pre-deal research report uses the private financial information provided by management to give investors an independent valuation. Without crossing the wall, the analyst would have no access to this data.</li>
+    </ul>
+    <div class="warn">If a research analyst publishes a recommendation on a stock while his bank is running an IPO for that company, without having crossed the wall properly, this constitutes market abuse and is illegal under EU MAR (Market Abuse Regulation).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 2 ═══════════════════════════════ -->
+<div id="s2" class="page">
+  <h1>Chapter 2 — The Full IPO Process</h1>
+  <p class="sub">Module 2 · Step-by-step, all actors, full detail</p>
+
+  <h2>Overview — Duration and Structure</h2>
+  <div class="card">
+    <p>From kick-off to settlement and delivery (first day of trading), the IPO process typically takes <strong>4 to 6 months</strong>. It involves the company's management, ECM bankers (Global Coordinators), equity syndication desks, equity research analysts, lawyers, auditors, and the financial regulator (AMF in France, FCA in the UK, SEC in the US). Every step has specific regulatory requirements and market conventions.</p>
+    <p style="margin-top:8px;">The process is divided into two main phases: (1) <strong>Documentation</strong> — preparing the prospectus and all legal documents; and (2) <strong>Marketing</strong> — reaching out to investors, gathering feedback, and running the bookbuilding.</p>
+  </div>
+
+  <h2>Full Timeline — Step by Step</h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-label">T − 5 to 6 months</div>
+      <div class="tl-head">Kick-off Meeting</div>
+      <div class="tl-body">
+        <p>All parties meet for the first time to define roles and responsibilities. The company has already selected its underwriters (Global Coordinators and co-managers) and lawyers through a competitive pitch process (the "beauty parade"). At the kick-off, the team agrees on the IPO timeline, the structure of the prospectus, due diligence requirements, and internal communication protocols.</p>
+        <p style="margin-top:6px;"><strong>Who is involved:</strong> ECM bankers, lawyers (issuer's counsel + underwriters' counsel), auditors, financial regulator liaison. The deal is <em>completely confidential</em> at this stage — no market disclosure whatsoever.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 5 to 3 months</div>
+      <div class="tl-head">Due Diligence &amp; Prospectus Drafting</div>
+      <div class="tl-body">
+        <p>The most time-consuming phase. The <strong>management presentation</strong> (due diligence session) ensures that all information about the issuer is appropriately disclosed. The aim is to protect the company, its board of directors, and the banking syndicate, since all future investors will rely wholly on the prospectus.</p>
+        <p style="margin-top:6px;"><strong>The Prospectus has two main parts:</strong></p>
+        <ul>
+          <li><strong>Universal Registration Document (URD) / Part 1 — "The Company":</strong> Business description, competitive environment, risk factors, financial information (3 years of audited accounts), management bios, corporate governance structure. This is the most detailed document investors will read about the company.</li>
+          <li><strong>Offering Document / Part 2 — "The Deal":</strong> Number of shares offered, price range, timetable for the subscription period, use of proceeds, lock-up arrangements, stabilization mechanics.</li>
+        </ul>
+        <p style="margin-top:6px;">Research analysts are <strong>brought over the Chinese Wall</strong> during this phase to access private company information. They begin drafting the pre-deal research report independently from management.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 3 months</div>
+      <div class="tl-head">Regulatory Filing &amp; Review (AMF in France)</div>
+      <div class="tl-body">
+        <p>A first draft of the prospectus is filed with the regulator. The AMF (or relevant national authority) conducts a thorough review: Does the prospectus contain all the information investors need? Are the risk factors adequately disclosed? Are the company's business model and financials presented fairly? Is there any misleading information? The review period kicks off the marketing phase simultaneously.</p>
+        <p style="margin-top:6px;">The regulator checks: <em>rationale for listing, business model analysis, financial data verification (CF, P&amp;L, BS, projections), risk assessment, and compliance review (AML checks on managers, board, UBOs).</em></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 2 months</div>
+      <div class="tl-head">Pilot Fishing — Early-Look Meetings</div>
+      <div class="tl-body">
+        <p>The underwriters schedule a series of <strong>one-on-one meetings</strong> with a selected group of targeted institutional investors (typically 20–50 of the most important potential investors globally). The purpose is to introduce the equity story at a high level, gauge initial market sentiment, test the company's narrative, and — above all — <em>create traction and early commitment</em> from anchor investors.</p>
+        <p style="margin-top:6px;"><strong>Key characteristics:</strong> Management is NOT always present (early meetings can be analyst-led). No price is discussed. These are purely exploratory. Investor feedback goes back to the ECM team to refine the equity story and the valuation framework before the PDIE phase.</p>
+        <p style="margin-top:6px;">Concurrently, research analysts finalize their pre-deal research report over approximately one month, giving their independent assessment of: the company's business model, its competitive environment (comparable peer group), and an <em>indicative valuation range</em>.</p>
+        <div class="intuition">Pilot fishing is the "soft sell" phase. Its success determines whether the IPO gets the right anchor investors who will provide price stability on day one of trading.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 1 month</div>
+      <div class="tl-head">PDIE — Pre-Deal Investor Education</div>
+      <div class="tl-body">
+        <p>PDIE is a <em>critical phase</em> in the IPO process. It is when banks calibrate the price range before launch.</p>
+        <ul>
+          <li>Research analysts distribute their pre-deal research report (with valuation range) to key institutional investors.</li>
+          <li>Analysts then hold meetings with investors <strong>without management present</strong>. This preserves the independence of the analyst's view and allows investors to ask candid questions they might not ask in front of the CEO.</li>
+          <li>Analysts collect feedback: What is the investor's reaction to the valuation range? What concerns do they have? What would make them invest?</li>
+          <li>This feedback is aggregated and shared with the ECM team, who then works with the company to <strong>adjust the price range</strong> and refine the slideshow (the marketing presentation) for the roadshow.</li>
+          <li>The price range can be set up to ±15% (France). It incorporates the IPO discount.</li>
+        </ul>
+        <div class="warn">PDIE is one of the most tested concepts. Key fact: management is NOT present in PDIE meetings. Only analysts and investors. This is different from the roadshow where management IS present.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 2 weeks</div>
+      <div class="tl-head">Management Roadshow</div>
+      <div class="tl-body">
+        <p>The offer period officially opens. A symbolic management presentation is made to media, analysts, and investors. Then an intensive series of one-on-one meetings, group events, and press lunches begins.</p>
+        <ul>
+          <li><strong>Institutional investors:</strong> Targeted by location (UK, US, France, Northern Europe) and investment strategy (long-only, value, growth, sector specialist). The CEO and CFO typically do 6–10 meetings per day for 2 weeks.</li>
+          <li><strong>Retail investors:</strong> Reached through a separate media plan (radio, press, web). Retail orders are collected through retail brokers and online platforms. Retail investors want clear, simple communication and equal treatment.</li>
+          <li><strong>The marketing slideshow:</strong> Unlike the 300-page prospectus, this is a concise (~30 slide) presentation drawn entirely from prospectus content and pre-approved by the regulator.</li>
+        </ul>
+        <p style="margin-top:6px;"><strong>Simultaneously, bookbuilding is open:</strong> fund managers submit orders indicating the number of shares they want at a specific price within the range. Orders can be withdrawn at any time during the roadshow — demand is flexible.</p>
+        <div class="note">From Allfunds case study: PDIE included over 900 investor meetings. Cornerstone investors (BlackRock €250m, Jupiter €200m, Mawer €160m, Lazard €120m, Janus Henderson €120m) committed early, covering 39% of the offer size and dramatically de-risking the transaction.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T − 0 (Pricing Day)</div>
+      <div class="tl-head">Pricing &amp; Allocation</div>
+      <div class="tl-body">
+        <p>After the roadshow closes, the syndication desk presents the state of the book to company management. Together they decide the final price, taking into account: quality of demand, level of oversubscription, whether to exercise the extension clause, and whether to price at the top, mid, or bottom of the range.</p>
+        <ul>
+          <li>If demand is weak → price at or below the bottom of the range, or even cancel the deal if &lt;75% of the base offer is subscribed.</li>
+          <li>If demand is strong → price at the top; possibly exercise extension clause → 115% of base.</li>
+          <li>Allocation: the syndicate desk allocates shares to investors, prioritizing long-term "quality" investors (pension funds, long-only) over short-term "hot money" (hedge funds that will flip shares immediately).</li>
+        </ul>
+        <div class="intuition">Pricing at the bottom of the range (like OVHcloud) is not a failure — it can be a deliberate choice to ensure oversubscription and a strong day-one "pop," which builds positive sentiment and attracts retail investors.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-label">T + 1 to T + 30</div>
+      <div class="tl-head">Settlement, First Day of Trading &amp; Greenshoe</div>
+      <div class="tl-body">
+        <p>Settlement typically occurs T+2 (two trading days after pricing). First day of trading: the stock begins trading publicly. The greenshoe option can then be exercised over 30 days post-listing. If the share price falls below the offer price, the stabilization agent (usually the lead underwriter) buys shares in the open market using the greenshoe allocation to support the price. If the share price rises, the greenshoe shares are issued (the option is exercised at the IPO price), and the extra shares/cash are distributed to primary or secondary sellers.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>SPACs — Alternative Route to Public Markets</h2>
+  <div class="card yellow">
+    <p>A <strong>SPAC</strong> (Special Purpose Acquisition Company, or "blank cheque company") is a publicly-traded shell company with no operations or assets, which exists solely to merge with a target private company and thereby take it public. This is an <em>alternative</em> to the traditional IPO process.</p>
+    <p style="margin-top:8px;"><strong>Process:</strong> (1) SPAC sponsors form the SPAC and go public themselves (simpler regulatory requirements than a full IPO); (2) Capital is raised and placed in a trust; (3) Sponsors search for a target (18–24 months deadline); (4) Target identified → de-SPAC process begins → valuation and structure negotiated; (5) Shareholders vote; (6) Merger closes → target is now public.</p>
+    <p style="margin-top:8px;"><strong>Sponsor economics:</strong> Sponsors receive "founder's shares" (Promote = typically 20% of pre-merger equity) as compensation for finding the target. Investors receive units (1 share + fraction of warrant). Investors can redeem their shares if they don't like the chosen target — their capital is protected in the trust.</p>
+    <div class="intuition">SPAC vs. IPO: SPACs are faster and give the target company more certainty on valuation (negotiated upfront vs. market-discovered). But they have been criticized for the Promote diluting regular investors and for targets sometimes having weaker disclosure than traditional IPOs.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 3 ═══════════════════════════════ -->
+<div id="s3" class="page">
+  <h1>Chapter 3 — Bookbuilding, Pricing &amp; Open Price Offer</h1>
+  <p class="sub">Module 2 · The mechanics of price discovery</p>
+
+  <h2>I. How Bookbuilding Works</h2>
+  <div class="card accent">
+    <p>Bookbuilding is the process by which the underwriting banks collect investor orders during the roadshow to determine both the <strong>level of demand</strong> and the <strong>optimal price</strong> for the IPO. It runs concurrently with the management roadshow.</p>
+    <p style="margin-top:8px;">Each institutional investor submits an order stating: <em>"I want to buy X shares if the price is at or below €Y."</em> These are called <strong>limit orders</strong> — the investor will only buy if the final price is at or below their stated limit. Orders can be modified or withdrawn at any time during the book-building period (typically 2 weeks). This flexibility means the book is a live, dynamic picture of demand that evolves constantly.</p>
+    <p style="margin-top:8px;">The banks aggregate all orders into a demand curve: for each possible price point within the range, how much total demand exists. This reveals the market's clearing price and the degree of oversubscription.</p>
+    <div class="note">The syndication desk is in constant communication with syndication desks at co-managing banks. They share aggregated demand information (but not individual investor names) to build a complete picture of the book.</div>
+  </div>
+
+  <h2>II. Open Price Offer — Full Algorithm</h2>
+  <div class="card green">
+    <ul class="steps">
+      <li><div class="step-num">1</div><div class="step-txt"><strong>Collect bids:</strong> Each investor submits a price (their maximum willingness to pay) and a quantity. An investor bidding €7.50 is saying: "I will buy my requested quantity at ANY price ≤ €7.50." This is the fundamental rule of limit order books.</div></li>
+      <li><div class="step-num">2</div><div class="step-txt"><strong>Build cumulative demand table:</strong> Starting from the highest price downward, sum all quantities. Cumulative demand at price P = sum of all orders at price P or higher. This gives you the demand curve.</div></li>
+      <li><div class="step-num">3</div><div class="step-txt"><strong>Find the clearing price:</strong> The clearing price is the LOWEST price at which cumulative demand ≥ total shares offered. This is the IPO price. All investors who bid at or above this price will be served.</div></li>
+      <li><div class="step-num">4</div><div class="step-txt"><strong>Check for oversubscription:</strong> If cumulative demand at clearing price &gt; shares offered → oversubscribed. Apply proration: each investor at the clearing price receives their bid quantity × (shares offered ÷ demand at clearing price). Investors above the clearing price are served at 100% first.</div></li>
+      <li><div class="step-num">5</div><div class="step-txt"><strong>Consider extension clause and greenshoe:</strong> If significantly oversubscribed, the company may increase the offer size by 15% (extension clause → 115%) and use the greenshoe for a further 15% (→ 132% total). This increases proceeds for issuer/sellers.</div></li>
+    </ul>
+  </div>
+
+  <h2>Worked Example — Suez Environnement (from slides)</h2>
+  <div class="card">
+    <p><em>500,000 shares to place. Orders collected during roadshow:</em></p>
+    <table>
+      <tr><th>Price (€)</th><th>Orders at this price only</th><th>Cumulative Demand</th><th>Sufficient?</th></tr>
+      <tr><td>8.00</td><td>25,000</td><td>25,000</td><td>— (25k &lt; 500k)</td></tr>
+      <tr><td>7.75</td><td>100,000</td><td>125,000</td><td>—</td></tr>
+      <tr><td>7.50</td><td>75,000</td><td>200,000</td><td>—</td></tr>
+      <tr><td>7.25</td><td>150,000</td><td>350,000</td><td>—</td></tr>
+      <tr style="background:rgba(52,212,164,.07);"><td><strong>7.00</strong></td><td>150,000</td><td><strong>500,000</strong></td><td><span class="tag green">✓ EXACTLY — IPO PRICE</span></td></tr>
+      <tr><td>6.75</td><td>275,000</td><td>775,000</td><td>Oversubscribed at this price</td></tr>
+      <tr><td>6.50</td><td>125,000</td><td>900,000</td><td>—</td></tr>
+    </table>
+    <p><strong>Result:</strong> IPO price = <em>€7.00</em>. At €7.00, cumulative demand equals exactly the supply of 500,000 shares. No proration needed.</p>
+    <p style="margin-top:8px;"><strong>Key insight:</strong> If demand at €7.00 had been 650,000 instead of 500,000, the bank would face oversubscription of 30%. The clearing price would remain €7.00 (because at €7.25, demand is only 350,000 &lt; 500,000, so €7.25 cannot clear). All investors bidding &gt; €7.00 would get 100%. Investors bidding exactly €7.00 would get prorated: 500,000 / 650,000 = 76.9% of their order. An investor who bid 100,000 shares at €7.00 would receive 76,923 shares.</p>
+    <div class="warn">Never confuse cumulative demand at a price with orders placed at exactly that price. Cumulative demand at €7.50 = orders at €7.50 + orders at €7.75 + orders at €8.00. An investor at €7.75 ALSO wants shares at €7.50 — they get a better deal than they expected.</div>
+  </div>
+
+  <h2>III. The IPO Discount — Why it Exists and What Drives it</h2>
+  <div class="card yellow">
+    <p>The IPO discount is the difference between the IPO price and the company's fair value as estimated by analysts and the price range. It typically ranges from <strong>5% to 15%</strong> and compensates investors for several specific risks:</p>
+    <ul>
+      <li><strong>No track record as a public company:</strong> Investors have no market price history, no analyst consensus, and no comparable institutional trading behavior to reference. They are buying into the unknown.</li>
+      <li><strong>Limited research coverage initially:</strong> At IPO, only the banks running the deal publish research. Independent coverage takes months to develop.</li>
+      <li><strong>Illiquidity premium:</strong> Lock-up periods mean certain investors cannot sell for 6–18 months even if they want to. They need to be compensated for this constraint.</li>
+      <li><strong>Market conditions:</strong> When the IPO market is crowded (many deals competing for investor cash), or when the market is falling, investors demand a larger discount. Their money is limited; they will only allocate to the best opportunities.</li>
+      <li><strong>Company-specific factors:</strong> Smaller companies, less visible business models, or companies in cyclical sectors command higher discounts than large-cap companies in defensive sectors.</li>
+    </ul>
+    <div class="intuition">The discount creates the "pop" on the first day of trading. This pop is intentional — it rewards investors who participated in the IPO and creates positive sentiment that attracts follow-on investors. It also makes future capital market access easier (the company has demonstrated it can deliver returns).</div>
+    <div class="note">From the slides: "IPOs are issued at discount to allow for the stock to pop afterwards, thus boosting investor sentiment and encouraging investors to participate in IPOs to begin with." — The discount is not waste; it is a strategic tool to build a quality long-term investor base.</div>
+  </div>
+
+  <h2>IV. Flexibility Clauses — Extension and Greenshoe</h2>
+  <div class="grid2">
+    <div class="card accent">
+      <h3>Extension Clause — Up to 115%</h3>
+      <p>When the book is oversubscribed, the company (for primary) or selling shareholders (for secondary) can increase the offer size by up to <strong>15% of the base deal</strong>, taking total size to 115%. This must be disclosed in the prospectus at launch and requires a simple decision at pricing. The extra shares come from issuing new shares (primary) or from selling shareholders offering more of their stake (secondary).</p>
+    </div>
+    <div class="card green">
+      <h3>Greenshoe (Over-Allotment Option) — Up to 132%</h3>
+      <p>The greenshoe allows the underwriter to sell up to <strong>15% more shares</strong> than the final offer size (post-extension). These shares are borrowed from the issuer or a major shareholder. The underwriter then has 30 days post-listing to either: (a) <strong>buy shares in the open market</strong> at the IPO price (if the stock falls below IPO price) to provide price support — covering the short position; or (b) <strong>exercise the option</strong> and buy the shares from the issuer at the IPO price (if stock rises above IPO price) — issuing the new shares. In total, the offer can reach 132% of the original base deal.</p>
+      <div class="intuition">Greenshoe = insurance policy for everyone. For the issuer: price support in the first 30 days. For the market: reduces selling pressure. For the bank: covers its short position either way.</div>
+    </div>
+  </div>
+
+  <h2>V. The Dual-Track Process</h2>
+  <div class="card">
+    <p>When a company (or its shareholder) wants to exit, it can run simultaneously two processes: an <strong>M&amp;A process</strong> (find a strategic buyer or PE fund) and an <strong>IPO process</strong>. This is called a "Dual Track." The company keeps both options open and chooses the one that delivers the best valuation and terms.</p>
+    <ul>
+      <li><strong>M&amp;A track:</strong> Price driven by strategic synergies (strategic buyer) or leverage capacity and cash flow (PE/LBO buyer). Full control premium. Faster but fewer bidders.</li>
+      <li><strong>IPO track:</strong> Price driven by equity story and market comparables. Partial monetization (only a portion sold at IPO). Exit in multiple tranches (IPO + follow-ons). Creates a market price reference.</li>
+    </ul>
+    <div class="note">UMG (Universal Music Group) is the perfect Dual-Track case from Module 5: Vivendi first sold 20% to Tencent-led consortium, then 10% to Pershing Square Holdings pre-IPO, then spun off 59.87% via IPO on Euronext Amsterdam. Three-step deal maximizing valuation.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 4 ═══════════════════════════════ -->
+<div id="s4" class="page">
+  <h1>Chapter 4 — Follow-on Offerings</h1>
+  <p class="sub">Module 3 · Primary vs. Secondary · All formats</p>
+
+  <h2>I. The Strategic Logic of Follow-on Offerings</h2>
+  <div class="card accent">
+    <p>The IPO is only the beginning. Access to public equity markets is a <em>strategic competitive advantage</em>. Once listed, a company can raise equity quickly and efficiently to fund growth, defend its balance sheet, or provide liquidity to shareholders — capabilities simply not available to private companies.</p>
+    <p style="margin-top:8px;">Follow-on offerings serve two fundamentally different purposes: <strong>offensive</strong> (raising capital to fund acquisitions or organic growth) or <strong>defensive</strong> (restructuring a balance sheet under financial distress). The choice of format — rights issue vs. placing, primary vs. secondary — depends on the amount needed, the shareholder structure, the market context, and regulatory constraints.</p>
+    <p style="margin-top:8px;">In some cases (mostly secondary or equity-linked), certain investors are <em>"wall-crossed"</em> before the official launch. Wall-crossing means the bank asks selected investors (who become temporarily restricted from trading) to receive confidential information about the upcoming deal in exchange for providing early demand signals. This helps the bank calibrate the offering size and price more accurately.</p>
+  </div>
+
+  <h2>II. Primary vs. Secondary — The Fundamental Distinction</h2>
+  <div class="grid2">
+    <div class="card green">
+      <h3>Primary Offering</h3>
+      <ul>
+        <li>The <strong>company is the seller</strong></li>
+        <li>New shares are issued from treasury</li>
+        <li>Cash goes <strong>directly to the company</strong></li>
+        <li><strong>Dilutive</strong> to existing shareholders (more shares outstanding, same earnings → lower EPS)</li>
+        <li>Requires <strong>shareholder approval</strong> (EGM vote, delegations to board)</li>
+        <li>Subject to AMF Règlement général and Code de Commerce (France)</li>
+        <li>Equity story is the key driver (investors must believe in the company's use of proceeds)</li>
+        <li><strong>Use of proceeds</strong> must be disclosed and credible</li>
+      </ul>
+    </div>
+    <div class="card yellow">
+      <h3>Secondary Offering</h3>
+      <ul>
+        <li>A <strong>shareholder is the seller</strong></li>
+        <li>No new shares created — existing shares exchanged</li>
+        <li>Cash goes <strong>to the selling shareholder</strong> (not the company)</li>
+        <li><strong>Non-dilutive</strong> to existing shareholders (share count unchanged)</li>
+        <li>Much lighter regulatory framework — no EGM required</li>
+        <li><strong>Liquidity</strong> of the stock is the key driver (can the market absorb this block?)</li>
+        <li>Communication is critical: the market must understand WHY the shareholder is selling (negative signal if unexplained)</li>
+        <li>Lock-up must be disclosed if residual stake remains (to avoid overhang)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn">A transaction can be BOTH primary and secondary simultaneously (mixed offering). Example: OVHcloud IPO was 76% primary (cash to company for data centers) + 24% secondary (Klaba family, KKR, TowerBrook selling). The greenshoe was 100% secondary.</div>
+
+  <h2>III. Primary Offerings: Rights Issue vs. Direct Placing</h2>
+  <div class="card">
+    <table>
+      <tr><th>Feature</th><th>Rights Issue (with preferential rights)</th><th>Direct Placing (without preferential rights)</th></tr>
+      <tr><td><strong>Pre-emption</strong></td><td><span class="tag green">YES — existing shareholders get tradable rights</span></td><td><span class="tag red">NO — open to any investor</span></td></tr>
+      <tr><td><strong>Discount level</strong></td><td>10–30% to current share price</td><td>≤10% to 3-day VWAP (France, if &lt;10% of capital)</td></tr>
+      <tr><td><strong>Discount target</strong></td><td>To share price</td><td>To 3-day VWAP (volume-weighted average price)</td></tr>
+      <tr><td><strong>Underwriting</strong></td><td>Firm UW before launch (at fixed price)</td><td>Soft UW after pricing (just before allotment)</td></tr>
+      <tr><td><strong>Price discovery</strong></td><td>Fixed price at launch</td><td>Bookbuilding at end of process</td></tr>
+      <tr><td><strong>Timeline</strong></td><td>3–4 weeks (rights trading + subscription period)</td><td>1–2 days (ABB) or even overnight (bought deal)</td></tr>
+      <tr><td><strong>Max size (France)</strong></td><td>No legal cap</td><td>&lt;20% of capital over 12 months</td></tr>
+      <tr><td><strong>Best suited for</strong></td><td>Large "structuring" transactions (M&amp;A financing, restructuring), significant shareholder take-up expected</td><td>Small-medium amounts, low shareholder take-up expected, mixed primary+secondary deals</td></tr>
+      <tr><td><strong>Shareholder friendliness</strong></td><td><span class="tag green">High — can subscribe, sell rights, or go neutral</span></td><td>Lower — may dilute shareholders without their participation</td></tr>
+      <tr><td><strong>Syndicate size</strong></td><td>Large (includes relationship/lending banks)</td><td>Smaller (selected for placing power)</td></tr>
+      <tr><td><strong>French regulation</strong></td><td>AMF + Code de Commerce; EGM approval required</td><td>No legal discount constraint if &lt;10% shares over 12 months</td></tr>
+    </table>
+    <div class="note">When shares issued &lt;10% of outstanding over 12 months: a Board of Directors' report + special auditor report are still required in France. When 10–20%: full EGM vote required.</div>
+  </div>
+
+  <h2>IV. Secondary Offerings: Three Formats Compared</h2>
+  <div class="card">
+    <table>
+      <tr><th>Feature</th><th>Bought Deal</th><th>ABB (Accelerated Bookbuild)</th><th>Marketed Offering</th></tr>
+      <tr><td><strong>Speed</strong></td><td>Fastest — launch after close, price before next open</td><td>Launch after close, price when book covered (same night)</td><td>Days to weeks (roadshow required)</td></tr>
+      <tr><td><strong>Bank underwriting</strong></td><td><span class="tag red">FIRM before launch — bank buys block before finding buyers</span></td><td>Soft — bank commits only after pricing</td><td>Soft — bank commits only after pricing</td></tr>
+      <tr><td><strong>Bank risk</strong></td><td><span class="tag red">Very high — bank owns the block</span></td><td>Moderate</td><td>Low</td></tr>
+      <tr><td><strong>Pricing certainty</strong></td><td>Certain for seller (fixed price at launch)</td><td>Less certain (price discovered in book)</td><td>Least certain (market conditions over days)</td></tr>
+      <tr><td><strong>Best suited for</strong></td><td>Very liquid stocks, small % of capital (few days of volume)</td><td>Liquid stocks, reasonable amount (~10–20 days ADTV)</td><td>Large, complex deals; exit of reference shareholder; "re-IPO" transactions</td></tr>
+      <tr><td><strong>Management involvement</strong></td><td>Not required</td><td>Not required</td><td><span class="tag yellow">REQUIRED — roadshow with management</span></td></tr>
+      <tr><td><strong>Bank selection</strong></td><td>Competitive bidding on discount — winner takes all</td><td>Small group, selected for placing power</td><td>Larger group, selected for placing power</td></tr>
+      <tr><td><strong>Resizing option</strong></td><td>None (deal is fixed)</td><td>Possible if investor appetite is poor</td><td>Possible throughout marketing</td></tr>
+      <tr><td><strong>Format</strong></td><td>Private placement</td><td>Private placement</td><td>Public or private placement</td></tr>
+    </table>
+    <div class="intuition">Think of it as a risk spectrum: Marketed → ABB → Bought Deal. The faster you need to execute and the more certainty you want for the seller, the more risk the bank takes — and the more it demands in fees and discount.</div>
+  </div>
+
+  <div class="card">
+    <h3>Key Concept: Lock-up and Overhang</h3>
+    <p>When a significant shareholder sells only part of its stake in a secondary offering (not a "clean-up" deal), it must accept a <strong>lock-up</strong> — typically 2 to 12 months, depending on the residual stake size. This is critical for preventing <em>overhang</em>: the market fear that the remaining shares will be sold shortly, creating sustained selling pressure that would depress the stock price and make the transaction difficult to execute.</p>
+    <p style="margin-top:8px;"><strong>Example from Allfunds ABB (Module 2 case study):</strong> Six months after IPO, LHC3, BNP Paribas Securities Services, and Credit Suisse sold 55m shares (8.7% of capital) via ABB at €16/share (8% discount to market close). Lock-up was 90 days on residual stake. The deal was upsized by 10% (to 55m shares from 50m initially announced) given strong demand.</p>
+  </div>
+
+  <h2>V. Equity-Linked Instruments</h2>
+  <div class="grid2">
+    <div class="card accent">
+      <h3>Convertible Bond (CB) / Exchangeable Bond (EB)</h3>
+      <p><strong>Structure:</strong> CB = Bond + Call option on shares. The investor lends money to the company (bond component) AND receives the right to convert that bond into shares at a pre-set price (the conversion/strike price) = the call option.</p>
+      <ul>
+        <li><strong>CB:</strong> converts into new shares of the issuer → dilutive if converted</li>
+        <li><strong>EB:</strong> converts into existing shares of another company held by the issuer → non-dilutive to issuer's shares</li>
+        <li>Conversion ratio: usually 1 bond → 1 share (1/1 ratio fixed at launch)</li>
+        <li>Conversion premium: 15–30% above spot price at launch. If stock price rises above conversion price → investor converts. If not → bond redeemed at par.</li>
+        <li>Coupon: lower than straight bond (investor "pays" for the option by accepting lower income)</li>
+        <li>Maturity: typically 5–10 years</li>
+        <li>Seniority: senior unsecured debt (until conversion)</li>
+        <li>High stock volatility = better terms for issuer (option worth more → issuer can offer lower coupon)</li>
+      </ul>
+      <p><strong>Issuer rationale:</strong> lower "cash" cost than straight equity; potential equity upside at a premium; diversification of investor base (equity-linked investors = hybrid long-only + hedge funds).</p>
+      <div class="note">Nexi (Module 3 case study): €1bn CB, zero coupon, zero yield, 52.5% conversion premium. Priced above all-time highs. Conversion price set 26% above its April 2020 CB conversion price.</div>
+    </div>
+    <div class="card green">
+      <h3>Mandatory Convertible Bond (MCB) / Mandatory Exchangeable (MEB)</h3>
+      <p><strong>Structure:</strong> MCB = Prepaid forward share sale + strip of fixed coupons [− optional call spread]. Conversion is <em>mandatory</em> at maturity — the investor MUST receive shares, regardless of the share price.</p>
+      <ul>
+        <li>At maturity: converts into shares at one (or two) conversion ratio(s)</li>
+        <li>If single conversion ratio (1/1): simple — fixed number of shares regardless of price</li>
+        <li>If call spread embedded: upper and lower conversion ratios → limits investor upside AND limits issuer dilution if stock rises</li>
+        <li>Coupon: higher than dividend (investor takes more risk → demands more income)</li>
+        <li>Issue price: usually small premium to spot (but lower than CB premium)</li>
+        <li>Maturity: typically 3 years (shorter than CB because it is "more equity")</li>
+        <li>Seniority: junior to other debt until redemption into shares</li>
+        <li>Rating agencies: usually treat MCB as equity → improves credit ratios</li>
+        <li>High stock volatility → WORSE terms for issuer (call spread becomes more expensive)</li>
+      </ul>
+      <p><strong>Issuer rationale:</strong> immediate equity-like treatment (rating agencies), but with delayed dilution; issue priced at premium (vs. discount for rights issue) → less immediate dilution; selective/complex use case.</p>
+      <div class="intuition">MCB is equity in disguise: you're going to issue shares in 3 years no matter what, but you receive debt-like treatment in the meantime and pay a coupon instead of a dividend.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 5 ═══════════════════════════════ -->
+<div id="s5" class="page">
+  <h1>Chapter 5 — Rights Issues: Full Mechanics</h1>
+  <p class="sub">Module 4 · TERP · Right value · 3 strategies · Neutrality proof</p>
+
+  <h2>I. What is a Rights Issue?</h2>
+  <div class="card accent">
+    <p>A rights issue is a primary offering in which the company gives its existing shareholders the <em>pre-emptive right</em> to buy newly issued shares, in proportion to their existing holding, at a <strong>fixed subscription price</strong> and within a fixed time period. The subscription price is always set at a significant discount to the current share price (10–30%).</p>
+    <p style="margin-top:8px;">The rights themselves are <strong>tradable on the market</strong> — they are listed separately from the shares for a period (the "rights trading period"). This means a shareholder who does NOT want to subscribe can sell their rights and receive cash compensation. A new investor who wants to participate must BUY rights in the market first.</p>
+    <p style="margin-top:8px;">This pre-emption mechanism is the core shareholder-protection feature of the rights issue: <em>no wealth transfer occurs between existing and new shareholders</em>, because the discount is exactly offset by the right's value.</p>
+  </div>
+
+  <h2>II. TERP — Theoretical Ex-Right Price</h2>
+  <p>The TERP is the <em>estimated share price after the rights issue is fully completed</em>, assuming the market is perfectly efficient. It is a weighted average of the old shares (at current price) and the new shares (at subscription price).</p>
+
+  <div class="formula">TERP = (Nb × Pb + Ni × Pi) / (Nb + Ni)</div>
+  <div class="formula">Right Value = Pb − TERP</div>
+  <div class="formula">Right Value (alternative formula) = (Pb − Pi) / (subscription ratio + 1)</div>
+  <p style="color:var(--text2);font-size:12.5px;margin-top:-6px;margin-bottom:12px;">where subscription ratio = Nb / Ni (number of existing shares per new share)</p>
+
+  <div class="card yellow">
+    <h3>Variable Definitions</h3>
+    <ul>
+      <li><strong>Nb</strong> = Number of existing shares (before the rights issue)</li>
+      <li><strong>Pb</strong> = Current share price (before detachment of rights = "cum-rights" price)</li>
+      <li><strong>Ni</strong> = Number of new shares to be issued</li>
+      <li><strong>Pi</strong> = Subscription price (the discounted price at which shareholders can buy new shares)</li>
+      <li><strong>TERP</strong> = Theoretical Ex-Right Price (estimated price AFTER the rights issue)</li>
+      <li><strong>Right Value</strong> = The economic value of one right = what compensates you for the share price falling to TERP</li>
+      <li><strong>Subscription ratio</strong> = Nb/Ni = how many existing shares you need to buy one new share. Example: if Nb=400m, Ni=100m → ratio=4 → you need 4 rights (one per existing share) to buy 1 new share.</li>
+    </ul>
+  </div>
+
+  <h2>III. Full Worked Example (from Module 4 slides)</h2>
+  <div class="card green">
+    <h3>Scenario: M&amp;A-Driven Rights Issue</h3>
+    <p><em>A company has 400m shares trading at €50. To fund an acquisition, it issues 100m new shares at €40.</em></p>
+    <div class="grid3">
+      <div style="text-align:center;background:var(--bg3);border-radius:6px;padding:12px;">
+        <div style="color:var(--text2);font-size:11px;text-transform:uppercase;margin-bottom:4px;">Pre-offering</div>
+        <div style="font-family:var(--mono);font-size:16px;color:var(--accent);">400m shares</div>
+        <div style="color:var(--text2);font-size:12px;">@ €50 each</div>
+        <div style="color:var(--text);font-weight:600;margin-top:4px;">Cap: €20,000m</div>
+      </div>
+      <div style="text-align:center;background:var(--bg3);border-radius:6px;padding:12px;">
+        <div style="color:var(--text2);font-size:11px;text-transform:uppercase;margin-bottom:4px;">New shares issued</div>
+        <div style="font-family:var(--mono);font-size:16px;color:var(--accent2);">100m shares</div>
+        <div style="color:var(--text2);font-size:12px;">@ €40 (subscription)</div>
+        <div style="color:var(--text);font-weight:600;margin-top:4px;">Proceeds: €4,000m</div>
+      </div>
+      <div style="text-align:center;background:var(--bg3);border-radius:6px;padding:12px;">
+        <div style="color:var(--text2);font-size:11px;text-transform:uppercase;margin-bottom:4px;">Post-offering</div>
+        <div style="font-family:var(--mono);font-size:16px;color:var(--accent3);">500m shares</div>
+        <div style="color:var(--text2);font-size:12px;">@ TERP = €48</div>
+        <div style="color:var(--text);font-weight:600;margin-top:4px;">Cap: €24,000m</div>
+      </div>
+    </div>
+    <div class="formula">TERP = (400 × 50 + 100 × 40) / 500 = (20,000 + 4,000) / 500 = 24,000 / 500 = €48</div>
+    <div class="formula">Right Value = Pb − TERP = 50 − 48 = €2</div>
+    <div class="formula">Check: Right Value = (50 − 40) / (4 + 1) = 10 / 5 = €2 ✓</div>
+    <p><strong>Subscription ratio:</strong> 400/100 = 4. So you need 4 rights (one per existing share) to buy 1 new share at €40.</p>
+    <p><strong>Discount to subscription price vs. current price:</strong> (50−40)/50 = −20% (discount to Pb)</p>
+    <p><strong>Discount to TERP:</strong> (48−40)/48 = −16.7% (discount to TERP) — this is the "true" dilution measure</p>
+  </div>
+
+  <h2>IV. Three Shareholder Strategies — Full Analysis</h2>
+  <div class="card accent">
+    <h3>Strategy 1: Subscribe (Exercise All Rights)</h3>
+    <p><em>The shareholder buys all the new shares they are entitled to.</em></p>
+    <p>If a shareholder holds 4 shares, they use their 4 rights to buy 1 new share at €40. Their portfolio: 4 shares × €48 (TERP) + 1 share × €40 (just bought). Total cost: 4 × €50 (original) + €40 = €240. Portfolio value after: 5 × €48 = €240. <strong>Net gain/loss: zero.</strong> They maintain their exact ownership percentage.</p>
+    <div class="formula">Value check: Own 4+1 = 5 shares × €48 TERP = €240 = original 4×€50 + €40 invested ✓</div>
+    <div class="intuition">No dilution in percentage. Cash out equals value received. This is the "safe" option for shareholders who want to maintain their stake.</div>
+  </div>
+
+  <div class="card green">
+    <h3>Strategy 2: Sell Rights (Do Not Subscribe)</h3>
+    <p><em>The shareholder sells all rights on the market and pockets the right value.</em></p>
+    <p>Shareholder holds 4 shares at €50 = €200. After rights issue, their 4 shares are worth 4 × €48 = €192 (loss of €8). But they sell 4 rights at €2 each = €8 cash received. <strong>Net gain/loss: zero.</strong> They are now diluted in percentage (they own fewer shares than the total), but their total wealth is unchanged.</p>
+    <div class="formula">4 shares × €48 + 4 rights × €2 = €192 + €8 = €200 = original value ✓</div>
+    <div class="intuition">This is why the discount is "neutral": the right value of €2 exactly compensates for the €2 drop per share from €50 to €48. Selling the right buys back the wealth lost from dilution.</div>
+  </div>
+
+  <div class="card yellow">
+    <h3>Strategy 3: Cash-Neutral Operation</h3>
+    <p><em>The shareholder sells SOME rights and uses the proceeds to subscribe to new shares — no net cash in or out.</em></p>
+    <p><strong>Setup from slides:</strong> Investor owns 30% of the company = 120m shares (out of 400m). After the rights issue (400m → 500m shares), if they do nothing, they are diluted to 120/500 = 24%. If they subscribe fully (30m new shares at €40 = €1,200m cash), they stay at 30%. Cash-neutral means: sell enough rights to fund the purchase.</p>
+    <ul>
+      <li>They have 120m rights (one per existing share), each worth €2</li>
+      <li>Sell R rights → receive R × €2 cash</li>
+      <li>Use cash to buy (R × €2) / €40 = R/20 new shares</li>
+      <li>They exercise their remaining (120m − R) rights → buy (120m − R)/4 new shares at €40</li>
+      <li>Cash-neutral: (R × €2) = ((120m − R)/4) × €40 → 2R = 10 × (120−R) → 2R = 1200−10R → 12R = 1200 → <strong>R = 100m rights to sell</strong></li>
+      <li>Buy with proceeds: 100m × €2 / €40 = 5m new shares</li>
+      <li>Exercise remaining: (120m − 100m)/4 = 5m new shares</li>
+      <li>Total held: 120m + 5m + 5m = 130m... <em>wait — let's use the slide's exact numbers:</em></li>
+    </ul>
+    <div class="formula">From slides: Sell 100m rights → €200m cash → buy 200m/40 = 5m shares. Own: 120m + 5m = 125m out of 500m = 25%</div>
+    <div class="formula">Wealth check: 25% × €24,000m = €6,000m = 30% × €20,000m ✓ Wealth preserved exactly.</div>
+    <p style="margin-top:8px;"><strong>Dilution check:</strong> From 30% → 25%. But this is the same dilution as if the rights issue had been priced at market price (€50): 80m new shares (€4000m/€50), total 480m, → 120/480 = 25%. The discount is irrelevant to the dilution level! Only the amount raised matters.</p>
+    <div class="note">This is the most powerful exam insight: the cash-neutral position always ends at the same percentage ownership as a market-price issue of the same amount. The discount doesn't cause additional dilution — it just changes how many shares are issued to raise the same money.</div>
+  </div>
+
+  <h2>V. Rights Issue — Impact on EPS (from slides)</h2>
+  <div class="card">
+    <p>EPS dilution from a rights issue depends on the <em>difference in P/E ratios</em> between the acquirer and the target (in an M&amp;A context), not on the issue price discount. The discount is "EPS-neutral" because it is offset by an adjustment factor applied to historical EPS figures.</p>
+    <p style="margin-top:8px;"><strong>Example from slides:</strong> EquitySeasonedCP: 100m shares, PER 20×, EPS €0.50. Acquires a company for €200m at PER 25× → target EPS = €8m. After acquisition (financed by rights issue), total earnings = €58m. Whether issue price is €10 (market), €8 (Case 1), or €5 (Case 2), the EPS dilution is always the same: −3.33%. The adjustment factor (TERP/Pb) normalizes this.</p>
+    <div class="intuition">EPS dilution comes from overpaying for the acquisition (higher PER than your own), NOT from the size of the discount on the rights issue. Never confuse the two.</div>
+  </div>
+
+  <h2>VI. Pros and Cons of Rights Issues</h2>
+  <div class="grid2">
+    <div class="card green">
+      <h3>Advantages (Pros)</h3>
+      <ul>
+        <li>Shareholder-friendly — no one is disadvantaged if they act rationally</li>
+        <li>No wealth redistribution from current to new shareholders</li>
+        <li>Easier shareholder approval (they know they can protect their stake)</li>
+        <li>Less marketing effort needed vs. a placing to new investors</li>
+        <li>Firm underwriting provides certainty of proceeds (if underwritten)</li>
+      </ul>
+    </div>
+    <div class="card red">
+      <h3>Disadvantages (Cons)</h3>
+      <ul>
+        <li>Limited diversification of shareholder base (same shareholders stay)</li>
+        <li>Negative signal if shareholders do NOT exercise their rights (market sees low confidence)</li>
+        <li>Long execution timetable (3–4 weeks vs. 1 day for ABB)</li>
+        <li>Non-underwritten rights issues can fail (&lt;75% subscribed → cancelled in France)</li>
+        <li>Complex and expensive process (legal, regulatory, underwriting fees)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <h3>Underwritten vs. Non-Underwritten Rights Issues</h3>
+    <ul>
+      <li><strong>Underwritten (standby):</strong> The bank syndicate commits (before launch) to purchase all shares not taken up by existing shareholders. The "backstop" guarantees the company will raise the full amount. More expensive (underwriting fee). Two types: force majeure clause (can withdraw in extreme market events) or "hard" underwriting = "garantie de bonne fin" in France (irrevocable commitment even in market crashes).</li>
+      <li><strong>Non-underwritten:</strong> No bank backstop. If &lt;75% of shares are subscribed, the deal is cancelled (France). Very rare in practice — used mainly for "rescue rights issues" where no bank is willing to underwrite (extreme financial distress situations). Sends a very negative signal to the market.</li>
+    </ul>
+    <div class="note">Veolia €2.5bn rights issue (Module 4 case study): 4 new shares for every 21 existing, subscription price €22.7/share (19.1% discount to TERP), 96.2% initial take-up + 175.4% including oversubscriptions. Total demand €4.4bn (1.75× oversubscribed). Largest French rights issue since 2017.</div>
+  </div>
+
+  <h2>VII. New Investor Perspective</h2>
+  <div class="card">
+    <p>Whatever the rights issue format (deep discount or shallow discount), the <strong>effective subscription price for a new investor is always the market price (TERP)</strong>. Why? Because a new investor who wants to participate must first <em>buy rights in the secondary market</em>, then use those rights to subscribe. The cost of buying rights + subscription price = TERP.</p>
+    <div class="formula">Effective cost for new investor = (Rights bought × Right Value) + (New shares × Pi) / New shares = TERP</div>
+    <div class="intuition">This is why the discount is neutral for everyone: existing shareholders are compensated via the right value they can sell; new investors pay TERP (market price) via buying rights + subscribing. No one gets a free lunch.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 6 ═══════════════════════════════ -->
+<div id="s6" class="page">
+  <h1>Chapter 6 — Key Numbers &amp; Exam Traps</h1>
+  <p class="sub">Every number you need to memorize — with the WHY behind each one</p>
+
+  <div class="num-grid">
+    <div class="num-card"><div class="num-val">5–15%</div><div class="num-label">IPO discount to fair value</div></div>
+    <div class="num-card"><div class="num-val">10–30%</div><div class="num-label">Rights issue discount to Pb</div></div>
+    <div class="num-card"><div class="num-val">≤10%</div><div class="num-label">Direct placing max discount (France, &lt;10% capital)</div></div>
+    <div class="num-card"><div class="num-val">±15%</div><div class="num-label">Max IPO price range width (France)</div></div>
+    <div class="num-card"><div class="num-val">~2×</div><div class="num-label">Target IPO oversubscription</div></div>
+    <div class="num-card"><div class="num-val">115%</div><div class="num-label">Extension clause max (base + 15%)</div></div>
+    <div class="num-card"><div class="num-val">132%</div><div class="num-label">Greenshoe max total (115% + 15%)</div></div>
+    <div class="num-card"><div class="num-val">30 days</div><div class="num-label">Greenshoe exercise window post-listing</div></div>
+    <div class="num-card"><div class="num-val">75%</div><div class="num-label">Min subscription to avoid cancellation</div></div>
+    <div class="num-card"><div class="num-val">&lt;20%</div><div class="num-label">Max direct placing (12 months, France)</div></div>
+    <div class="num-card"><div class="num-val">15–30%</div><div class="num-label">CB conversion premium to spot</div></div>
+    <div class="num-card"><div class="num-val">5–10 yrs</div><div class="num-label">CB typical maturity</div></div>
+    <div class="num-card"><div class="num-val">3 yrs</div><div class="num-label">MCB typical maturity</div></div>
+    <div class="num-card"><div class="num-val">4–6 months</div><div class="num-label">Full IPO process duration</div></div>
+    <div class="num-card"><div class="num-val">2 months</div><div class="num-label">Before IPO: pilot fishing begins</div></div>
+    <div class="num-card"><div class="num-val">1 month</div><div class="num-label">Before IPO: PDIE starts</div></div>
+    <div class="num-card"><div class="num-val">2 weeks</div><div class="num-label">Before pricing: roadshow begins</div></div>
+    <div class="num-card"><div class="num-val">25%</div><div class="num-label">Min free float Euronext main (or ≥5% + €5m)</div></div>
+    <div class="num-card"><div class="num-val">3 years</div><div class="num-label">Audited financials required, Euronext main</div></div>
+    <div class="num-card"><div class="num-val">20%</div><div class="num-label">SPAC sponsor "promote" (founder's shares)</div></div>
+  </div>
+
+  <h2>Deep Explanation — Why Each Number Exists</h2>
+
+  <div class="card accent">
+    <h3>IPO Discount: 5–15% — Why not 0%?</h3>
+    <p>An IPO discount is not generosity — it is the price of risk transfer. When an investor commits capital to an IPO, they face multiple risks simultaneously: (1) <em>Valuation uncertainty</em> — there are no perfect comparables, the price range is an approximation, and the company has no trading history. (2) <em>Lock-up risk</em> — after allocation, they cannot sell immediately (informal norms, even if not formally locked). (3) <em>Information asymmetry</em> — management knows far more about the business than the investor, even after reading a 300-page prospectus. (4) <em>Market conditions</em> — by the time settlement occurs (T+2), the market may have moved against them.</p>
+    <p style="margin-top:8px;">The discount compensates for all of this. It also creates the "first-day pop" — a positive return for IPO participants that rewards them and generates positive press, which in turn makes future IPO investors more willing to participate. This is entirely intentional and structural.</p>
+    <p style="margin-top:8px;"><strong>What drives the size of the discount:</strong> (a) General IPO market conditions — a crowded IPO calendar = larger discounts because investor cash is scarce; (b) Company-specific — larger companies with more visibility, proven business models, and strong research coverage need smaller discounts; smaller, less-known companies need larger discounts to attract demand.</p>
+    <div class="warn">The IPO discount is expressed relative to the estimated fair value (the price range midpoint), NOT to the previous day's close (there is no previous day's close for an IPO!). Don't confuse this with the ABB discount which IS relative to a closing price.</div>
+  </div>
+
+  <div class="card green">
+    <h3>Rights Issue Discount: 10–30% — Why so high?</h3>
+    <p>The rights issue discount is much larger than an IPO discount for four structural reasons:</p>
+    <ul>
+      <li><strong>Firm underwriting requires compensation:</strong> The bank commits to buy all unsubscribed shares BEFORE the offering is launched, at a fixed price. If the stock falls 20% during the 3-week execution, the bank loses money. This risk premium must be priced into the discount.</li>
+      <li><strong>Long execution timeline:</strong> The rights issue takes 3–4 weeks from announcement to settlement. During this period, the stock can move significantly. A 20–30% discount provides a safety buffer — the subscription price must remain attractive even if the stock falls sharply.</li>
+      <li><strong>Larger amounts need larger discounts:</strong> The bigger the rights issue as a percentage of market cap, the more it strains investor appetite, and the higher the discount required to attract full subscription.</li>
+      <li><strong>Discount is theoretically neutral:</strong> The large discount does NOT disadvantage existing shareholders because the right value (Pb − TERP) exactly offsets the price decline. The discount is a technical feature, not a cost.</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>Important nuance:</strong> The discount is quoted two ways: (a) discount to Pb (current share price before detachment) — typically 10–30%; (b) discount to TERP (post-issue price) — typically smaller (e.g., Veolia: 24% to Pb but 19.1% to TERP). The exam may test either. Always identify which basis is given.</p>
+  </div>
+
+  <div class="card yellow">
+    <h3>Extension Clause (115%) and Greenshoe (132%) — The Mechanics</h3>
+    <p><strong>Extension clause (up to +15% of base):</strong> If the book is significantly oversubscribed during bookbuilding, the company can choose to issue 15% more shares than originally planned (taking total to 115% of base). This is disclosed in the prospectus at launch. It allows the issuer to capture additional proceeds when demand is strong. Decision made at pricing.</p>
+    <p style="margin-top:8px;"><strong>Greenshoe / Over-allotment option (up to +15% of POST-extension size):</strong> The underwriter sells more shares than officially offered (a "naked short position"), borrowing them from the issuer or a shareholder. After listing, the stabilization agent has 30 days to:</p>
+    <ul>
+      <li><em>If stock FALLS below IPO price:</em> The agent buys shares in the open market to support the price, covering its short position. This stabilizes the stock and protects IPO investors.</li>
+      <li><em>If stock RISES above IPO price:</em> The agent exercises the greenshoe option, buying shares from the issuer at the IPO price. These shares cover the short position. The issuer receives additional proceeds.</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>Combined maximum:</strong> Base deal × 115% (extension) × an additional 15% of base = effectively 132% of original base deal. Example: €100m base → €115m after extension → €115m + €15m greenshoe = €130m (if greenshoe is 15% of base, not of post-extension). Note: the 132% convention assumes greenshoe = 15% of base.</p>
+    <div class="intuition">Greenshoe = built-in price insurance. It benefits all parties: issuer gets price support, investors get protection against immediate price fall, and underwriters can cover their position either way.</div>
+  </div>
+
+  <div class="card red">
+    <h3>75% Minimum Subscription — The Cancellation Threshold</h3>
+    <p>In France and most European markets, if demand for a rights issue falls below 75% of the total base offering, the deal is automatically cancelled. This threshold protects the company from having to issue shares at a massive discount while only raising a fraction of the intended amount (which would leave the balance sheet repair half-done and signal catastrophic failure).</p>
+    <p style="margin-top:8px;">For a direct placing, if demand is insufficient, the deal is simply pulled (cancelled) and typically repriced or restructured. There is no formal 75% threshold for placings.</p>
+    <div class="note">The 75% threshold also applies to IPOs: if demand at any price covers less than 75% of the base IPO shares offered, the deal is deemed unsuccessful and cancelled.</div>
+  </div>
+
+  <h2>Critical Exam Traps — Full Explanations</h2>
+
+  <div class="card red">
+    <h4>Trap 1: Primary vs. Secondary — The Cash Flow Question</h4>
+    <p>The single most common exam mistake: candidates confuse who receives the money. <strong>Primary = company gets the cash.</strong> <strong>Secondary = selling shareholder gets the cash.</strong> The number of shares outstanding only changes in primary (new shares created). In secondary, the same shares just change hands between sellers and buyers. A company doing a 100% secondary offering raises ZERO euros for itself.</p>
+    <p style="margin-top:6px;"><strong>Real example:</strong> Allfunds IPO April 2021 = 100% secondary. €1.88bn raised. Zero went to Allfunds. All went to LHC3 (Hellman &amp; Friedman/GIC), BNP Paribas Securities Services, and Credit Suisse. The IPO was for shareholder exit, not company funding.</p>
+  </div>
+
+  <div class="card red">
+    <h4>Trap 2: TERP vs. Current Share Price vs. Subscription Price</h4>
+    <p>Three different prices exist simultaneously in a rights issue:</p>
+    <ul>
+      <li><strong>Pb</strong> = Current (cum-rights) share price BEFORE the rights are detached. This is what the stock trades at on the market before announcement.</li>
+      <li><strong>Pi</strong> = Subscription price = the discounted price at which you buy new shares using your rights. This is fixed at launch and does not change during the offer period.</li>
+      <li><strong>TERP</strong> = Theoretical Ex-Rights Price = estimated price AFTER the rights are detached and the new shares are issued. This is the expected new trading level of the (ex-rights) shares.</li>
+    </ul>
+    <p style="margin-top:6px;">The discount is quoted as a % to Pb (e.g., "40% discount") and as a % to TERP (e.g., "19.1% discount to TERP" in the Veolia case). Both are correct — they just measure from different reference points. TERP-based discount is the more economically meaningful number because TERP is what the stock actually trades at after detachment.</p>
+  </div>
+
+  <div class="card red">
+    <h4>Trap 3: ABB vs. Bought Deal — Who Takes the Risk?</h4>
+    <p>Both ABB and bought deals are overnight transactions. The distinction is purely about WHEN the bank commits:</p>
+    <ul>
+      <li><strong>Bought deal:</strong> Bank buys the entire block of shares from the seller FIRST, before any bookbuilding, at a fixed price. The bank then runs a bookbuilding and tries to place the shares with investors. If demand is weak, the bank is stuck with the shares (massive balance sheet risk). This requires the bank to have full conviction in its ability to place the deal.</li>
+      <li><strong>ABB:</strong> The bank launches the bookbuilding first, gauges demand, and only commits to buy unsold shares AFTER pricing is determined (i.e., when the book is "covered"). The risk is much lower — the bank only underwrites what it knows it can sell.</li>
+    </ul>
+    <div class="intuition">Shortcut: Bought deal = "bank buys blind." ABB = "bank buys with eyes open (after seeing the book)."</div>
+  </div>
+
+  <div class="card red">
+    <h4>Trap 4: Discount Neutrality in a Rights Issue</h4>
+    <p>Students often think a large discount (e.g., 30%) disadvantages existing shareholders. It does NOT, if they act rationally. The right value (Pb − TERP) precisely compensates for the share price drop. In Strategy 2 (sell rights), the shareholder receives exactly the wealth they "lose" from the price falling to TERP. In Strategy 1 (subscribe), they get shares below TERP = immediate paper gain offsetting the old shares' loss. In Strategy 3 (cash-neutral), wealth is preserved at zero net cash. The discount is a technical tool to ensure full subscription — it is not a transfer of wealth to new investors.</p>
+    <p style="margin-top:6px;"><strong>Exception:</strong> If a shareholder does NOTHING — neither subscribes nor sells rights — they are diluted AND their rights expire worthless. In this case, there IS a wealth transfer to participating shareholders. This is the "rights issue puzzle" — about 36% of rights are not exercised in practice (Holderness, Pontiff 2016), creating wealth transfers of ~7% of offering value on average.</p>
+  </div>
+
+  <div class="card red">
+    <h4>Trap 5: CB Conversion Premium Direction</h4>
+    <p>The CB conversion premium is ABOVE the current share price (not below). A 25% premium means conversion price = share price × 1.25. For an investor to want to convert, the stock must RISE by more than 25% from the launch price. If the stock doesn't rise enough, the bond is redeemed at par — investor receives their money back but no equity upside.</p>
+    <p style="margin-top:6px;">MCB is the opposite in spirit: issue price is a SMALL premium to spot (e.g., 5%), but conversion is MANDATORY at maturity regardless of price. The investor takes full equity downside risk in exchange for a higher coupon.</p>
+  </div>
+
+  <div class="card red">
+    <h4>Trap 6: PDIE vs. Roadshow — Management Presence</h4>
+    <p>PDIE = analysts meet investors WITHOUT management. Roadshow = management IS present. This distinction is tested frequently because it seems counterintuitive — why would you exclude the CEO from meetings about the company's value?</p>
+    <p style="margin-top:6px;">The reason is independence: during PDIE, the goal is to get honest investor feedback on the valuation range and equity story, which investors will give more freely if management is not in the room. Management's presence would inhibit candid negative feedback. The PDIE feedback then goes back to the ECM team to calibrate the price range — not directly to management.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 7 ═══════════════════════════════ -->
+<div id="s7" class="page">
+  <h1>Chapter 7 — QCM Training</h1>
+  <p class="sub">12 difficult questions · Click an answer to reveal the explanation</p>
+  <div id="qcm-container"></div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 8 ═══════════════════════════════ -->
+<div id="s8" class="page">
+  <h1>Chapter 8 — Ultra-Condensed Cheat Sheet</h1>
+  <p class="sub">5-minute final revision · Everything you need on one page</p>
+
+  <div class="grid2">
+    <div>
+      <div class="cheat-title">Core Formulas</div>
+      <div class="cheat-row"><span class="cheat-key">TERP</span><span class="cheat-val">(Nb×Pb + Ni×Pi) / (Nb+Ni)</span></div>
+      <div class="cheat-row"><span class="cheat-key">Right Value (1)</span><span class="cheat-val">Pb − TERP</span></div>
+      <div class="cheat-row"><span class="cheat-key">Right Value (2)</span><span class="cheat-val">(Pb − Pi) / (ratio + 1)</span></div>
+      <div class="cheat-row"><span class="cheat-key">Subscription ratio</span><span class="cheat-val">Nb / Ni</span></div>
+      <div class="cheat-row"><span class="cheat-key">Discount to TERP</span><span class="cheat-val">(TERP − Pi) / TERP</span></div>
+      <div class="cheat-row"><span class="cheat-key">Clearing price</span><span class="cheat-val">Lowest P where CumDemand ≥ Supply</span></div>
+      <div class="cheat-row"><span class="cheat-key">Proration ratio</span><span class="cheat-val">Shares offered / Demand at clearing P</span></div>
+      <div class="cheat-row"><span class="cheat-key">CB conversion price</span><span class="cheat-val">Spot × (1 + premium%)</span></div>
+
+      <div class="cheat-title">Key Distinctions</div>
+      <div class="cheat-row"><span class="cheat-key">Primary</span><span class="cheat-val">New shares → cash to company → dilutive</span></div>
+      <div class="cheat-row"><span class="cheat-key">Secondary</span><span class="cheat-val">Existing shares → cash to seller → NON-dilutive</span></div>
+      <div class="cheat-row"><span class="cheat-key">Rights issue</span><span class="cheat-val">Pre-emption + 10–30% disc + firm UW pre-launch</span></div>
+      <div class="cheat-row"><span class="cheat-key">Direct placing</span><span class="cheat-val">No pre-emption + ≤10% disc + soft UW post-pricing</span></div>
+      <div class="cheat-row"><span class="cheat-key">Bought deal</span><span class="cheat-val">Firm UW BEFORE bookbuilding (riskiest for bank)</span></div>
+      <div class="cheat-row"><span class="cheat-key">ABB</span><span class="cheat-val">Soft UW AFTER pricing (overnight, best-efforts)</span></div>
+      <div class="cheat-row"><span class="cheat-key">Marketed offering</span><span class="cheat-val">Roadshow + management + large deal</span></div>
+      <div class="cheat-row"><span class="cheat-key">CB</span><span class="cheat-val">Bond + OPTIONAL conversion; 15–30% premium; 5–10y</span></div>
+      <div class="cheat-row"><span class="cheat-key">MCB</span><span class="cheat-val">MANDATORY conversion; small premium; 3y; junior</span></div>
+      <div class="cheat-row"><span class="cheat-key">PDIE</span><span class="cheat-val">Analysts + investors, WITHOUT management</span></div>
+      <div class="cheat-row"><span class="cheat-key">Roadshow</span><span class="cheat-val">Management + investors, WITH management</span></div>
+      <div class="cheat-row"><span class="cheat-key">Chinese Wall</span><span class="cheat-val">Barrier between private (deal) side and public (market) side</span></div>
+    </div>
+
+    <div>
+      <div class="cheat-title">All Key Numbers</div>
+      <div class="cheat-row"><span class="cheat-key">IPO discount</span><span class="cheat-val">5–15%</span></div>
+      <div class="cheat-row"><span class="cheat-key">Rights issue discount</span><span class="cheat-val">10–30% to Pb</span></div>
+      <div class="cheat-row"><span class="cheat-key">Placing max discount (FR)</span><span class="cheat-val">≤10% to 3-day VWAP</span></div>
+      <div class="cheat-row"><span class="cheat-key">IPO price range width</span><span class="cheat-val">±15% (France)</span></div>
+      <div class="cheat-row"><span class="cheat-key">Extension clause</span><span class="cheat-val">+15% → 115% of base</span></div>
+      <div class="cheat-row"><span class="cheat-key">Greenshoe total</span><span class="cheat-val">+15% more → 132% of base, 30 days</span></div>
+      <div class="cheat-row"><span class="cheat-key">Min subscription (cancel)</span><span class="cheat-val">75% — else deal cancelled</span></div>
+      <div class="cheat-row"><span class="cheat-key">Target oversubscription</span><span class="cheat-val">~2× at offer price</span></div>
+      <div class="cheat-row"><span class="cheat-key">Max direct placing (FR)</span><span class="cheat-val">&lt;20% of capital over 12 months</span></div>
+      <div class="cheat-row"><span class="cheat-key">CB conversion premium</span><span class="cheat-val">15–30% above spot at launch</span></div>
+      <div class="cheat-row"><span class="cheat-key">CB maturity</span><span class="cheat-val">5–10 years</span></div>
+      <div class="cheat-row"><span class="cheat-key">MCB maturity</span><span class="cheat-val">3 years</span></div>
+      <div class="cheat-row"><span class="cheat-key">IPO full timeline</span><span class="cheat-val">4–6 months</span></div>
+      <div class="cheat-row"><span class="cheat-key">Pilot fishing starts</span><span class="cheat-val">T−2 months</span></div>
+      <div class="cheat-row"><span class="cheat-key">PDIE starts</span><span class="cheat-val">T−1 month</span></div>
+      <div class="cheat-row"><span class="cheat-key">Roadshow starts</span><span class="cheat-val">T−2 weeks</span></div>
+      <div class="cheat-row"><span class="cheat-key">Euronext main free float</span><span class="cheat-val">≥25% or ≥5%+€5m</span></div>
+      <div class="cheat-row"><span class="cheat-key">SPAC sponsor promote</span><span class="cheat-val">20% pre-merger equity</span></div>
+      <div class="cheat-row"><span class="cheat-key">SPAC search deadline</span><span class="cheat-val">18–24 months</span></div>
+    </div>
+  </div>
+
+  <div class="cheat-title">Mnemonics &amp; Decision Rules</div>
+  <div class="grid2" style="margin-top:6px;">
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">IPO PHASES → KICK-FISH-PDIE-ROAD-PRICE</p>
+      <p style="font-size:12px;color:var(--text2);">Kick-off → Pilot Fishing → PDIE → Roadshow → Pricing/Settlement</p>
+    </div>
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">8 EQUITY STORY → M-K-F-L-G-S-K-S</p>
+      <p style="font-size:12px;color:var(--text2);">Message · KPIs · Financial comms · Legal · Governance · Share profile · Key dates · Sustainability</p>
+    </div>
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">BOUGHT DEAL = "Bank Buys Blind"</p>
+      <p style="font-size:12px;color:var(--text2);">Firm commitment before seeing demand → riskiest for bank</p>
+    </div>
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">TERP NEUTRALITY = "Right = Loss"</p>
+      <p style="font-size:12px;color:var(--text2);">Right Value = Pb − TERP = exactly the per-share wealth loss. Sell rights → get loss back → neutral.</p>
+    </div>
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">CB = Optional · MCB = Mandatory</p>
+      <p style="font-size:12px;color:var(--text2);">CB investor CHOOSES to convert. MCB investor MUST convert at maturity. CB → senior. MCB → junior.</p>
+    </div>
+    <div class="card dark" style="margin-bottom:8px;">
+      <p style="font-family:var(--mono);font-size:12px;color:var(--accent3);font-weight:600;">3 SHAREHOLDER STRATEGIES</p>
+      <p style="font-size:12px;color:var(--text2);">Subscribe → no dilution, cash out. Sell rights → diluted, cash in. Cash-neutral → same wealth, partial dilution. All three = same total wealth.</p>
+    </div>
+  </div>
+
+  <div class="cheat-title">Quick Decision Tree</div>
+  <div class="card" style="margin-top:6px;">
+    <div class="dtree">
+      <div class="dt-q">First listing of shares on a public exchange?</div>
+      <div class="dt-branch">
+        <div class="dt-yes">YES → <span class="dt-ans">IPO</span></div>
+        <div class="dt-no">NO → Follow-on. Continue ↓</div>
+      </div>
+      <div class="dt-q">Does the company receive the cash?</div>
+      <div class="dt-branch">
+        <div class="dt-yes">YES (new shares) → <span class="dt-ans">PRIMARY</span> → continue ↓</div>
+        <div class="dt-no">NO (existing shares) → <span class="dt-ans">SECONDARY</span> → continue ↓</div>
+      </div>
+      <div class="dt-q">[PRIMARY] Do existing shareholders have pre-emptive rights?</div>
+      <div class="dt-branch">
+        <div class="dt-yes">YES + 10–30% discount + firm UW + large size → <span class="dt-ans">RIGHTS ISSUE</span></div>
+        <div class="dt-no">NO → <span class="dt-ans">DIRECT PLACING</span> (sub-types below)</div>
+      </div>
+      <div class="dt-q">[SECONDARY] How does the bank underwrite?</div>
+      <div class="dt-branch">
+        <div style="color:var(--accent4);">Bank commits BEFORE seeing demand → <span class="dt-ans">BOUGHT DEAL</span></div>
+        <div style="color:var(--accent2);">Bank commits after pricing, overnight → <span class="dt-ans">ABB</span></div>
+        <div style="color:var(--accent3);">Roadshow + management + days → <span class="dt-ans">MARKETED OFFERING</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheat-title">Shareholder Strategies Summary</div>
+  <div class="card" style="margin-top:6px;">
+    <table>
+      <tr><th>Strategy</th><th>Cash flow</th><th>% held after</th><th>Wealth effect</th><th>When to choose</th></tr>
+      <tr><td><strong>Subscribe all rights</strong></td><td>Pay Ni × Pi</td><td>Unchanged (no dilution)</td><td>Neutral</td><td>Want to maintain % at low price</td></tr>
+      <tr><td><strong>Sell all rights</strong></td><td>Receive N×RightValue</td><td>Diluted</td><td>Neutral</td><td>Don't want more exposure</td></tr>
+      <tr><td><strong>Cash-neutral</strong></td><td>Zero net</td><td>Slightly diluted</td><td>Neutral</td><td>Can't afford new investment</td></tr>
+      <tr><td><strong>Do nothing</strong></td><td>Zero</td><td>Diluted + rights expire</td><td><span class="tag red">Negative</span></td><td>Never rational</td></tr>
+    </table>
+    <div class="intuition">All three rational strategies produce identical total wealth. The discount is theoretically neutral in ALL of them. Only "do nothing" creates a loss.</div>
+  </div>
+</div>
+
+<script>
+const questions=[
+  {q:"A company has 300m shares at €60. It issues 100m new shares at €45. What is the TERP?",opts:["A. €52.50","B. €56.25","C. €53.75","D. €55.00"],answer:1,explain:"TERP = (300×60 + 100×45) / 400 = (18,000 + 4,500) / 400 = 22,500 / 400 = €56.25. Always use the weighted average formula. Common mistake: averaging 60 and 45 directly = €52.50, which ignores the weights."},
+  {q:"In the same rights issue (Pb=€60, Pi=€45, TERP=€56.25), what is the theoretical right value? Subscription ratio = 3:1.",opts:["A. €3.75","B. €15.00","C. €5.00","D. €2.25"],answer:0,explain:"Right Value = Pb − TERP = 60 − 56.25 = €3.75. Check with alternative formula: (Pb−Pi)/(ratio+1) = (60−45)/(3+1) = 15/4 = €3.75 ✓. Each right is worth €3.75 on the market."},
+  {q:"An investor owns 900 shares (out of 300m existing). After the rights issue above (300m→400m), if the investor SELLS ALL their rights and does nothing else, what is their total portfolio value?",opts:["A. €50,625","B. €54,000","C. €54,562","D. €50,400"],answer:0,explain:"They have 900 shares × €56.25 TERP = €50,625. PLUS they sold 900 rights × €3.75 = €3,375. Total = €54,000. But wait — before the rights issue, they had 900 × €60 = €54,000. So total wealth = €54,000. The €50,625 is the value of JUST the shares post-issue. Their total wealth (shares + rights proceeds) = 900×56.25 + 900×3.75 = 50,625 + 3,375 = €54,000 = original value ✓. Answer A shows shares only post-issue — which is what the stock account shows."},
+  {q:"Suez Environnement wants to place 500,000 shares. At €7.50 cumulative demand is 600,000. At €7.75 cumulative demand is 325,000. What is the correct clearing price and proration?",opts:["A. €7.75, no proration","B. €7.50, proration = 83.3%","C. €7.50, no proration needed","D. €7.25, proration = 75%"],answer:1,explain:"At €7.75: demand = 325,000 < 500,000 → not enough. At €7.50: demand = 600,000 > 500,000 → sufficient. Clearing price = €7.50. Oversubscription at clearing price: proration = 500,000/600,000 = 83.3%. Investors who bid above €7.50 get 100%. Investors who bid exactly €7.50 receive 83.3% of their order."},
+  {q:"A PE fund wants to sell 12% of a listed company. The stock is very liquid. They want to transact tonight and get certainty on price before finding buyers. Which format is most appropriate?",opts:["A. Accelerated Bookbuild (ABB)","B. Bought Deal","C. Rights Issue","D. Marketed Offering"],answer:1,explain:"Bought Deal: the bank buys the entire block from the PE fund BEFORE the bookbuilding begins, giving the seller complete price certainty immediately. The bank then assumes all market risk. ABB would be best-efforts — price is discovered after the book is covered, no upfront commitment to the seller. Rights issue is primary (company raises money). Marketed offering takes days/weeks."},
+  {q:"Which of the following statements about secondary offerings is CORRECT?",opts:["A. Secondary offerings increase the number of shares outstanding","B. Secondary offerings are always non-dilutive to existing shareholders","C. Secondary offerings require an EGM vote","D. Secondary offerings generate cash proceeds for the issuing company"],answer:1,explain:"B is correct: secondary offerings involve the sale of EXISTING shares (no new shares created), so the total number of shares outstanding does not change → existing shareholders are not diluted. A is wrong (no new shares). C is wrong (no EGM needed for secondary). D is wrong (cash goes to the SELLING SHAREHOLDER, not the company)."},
+  {q:"A company issues a convertible bond (CB) with a 30% conversion premium when the stock is at €50. The conversion price is set at launch. One year later, the stock is at €62. Should the investor convert?",opts:["A. Yes, because €62 > €50","B. No, because the stock has not reached the conversion price of €65","C. Yes, because the CB is in the money","D. No, because CB conversion is always mandatory at maturity"],answer:1,explain:"Conversion price = €50 × (1+30%) = €65. At €62, the stock is BELOW the conversion price. Converting would give the investor shares worth €62 per bond notional, while NOT converting means the bond trades near par (€50-equivalent face value). The investor should NOT convert — they would crystallize a loss relative to holding the bond to maturity. They should only convert if stock exceeds €65. Answer D is also wrong — conversion in a CB is OPTIONAL (MCB is mandatory)."},
+  {q:"During a rights issue, a company announces: 'The discount to the subscription price is theoretically neutral.' A student argues this is wrong because the share price clearly falls. Who is right?",opts:["A. The student — the share price fall is a real loss for shareholders","B. The company — because shareholders can subscribe at the lower price and recover","C. The company — because the right value offsets exactly the per-share wealth decline","D. Neither — the neutrality only applies if the company is profitable"],answer:2,explain:"C is correct. The share price DOES fall from Pb to TERP — this is real and visible. But simultaneously, existing shareholders receive rights worth exactly (Pb − TERP). Selling those rights returns the exact value lost on each share. Subscribing at Pi delivers a gain that offsets the TERP drop. Cash-neutral strategy preserves 100% of wealth. The neutrality is about TOTAL WEALTH, not just share price. The student is confused because they only look at the share price, not at the right value."},
+  {q:"What is the KEY difference between the pilot fishing phase and the PDIE phase in the IPO process?",opts:["A. Pilot fishing involves management; PDIE does not","B. PDIE involves management meetings; pilot fishing does not","C. Pilot fishing is for retail investors; PDIE is for institutional","D. Pilot fishing has no price discussion; PDIE involves the price range and analysts without management"],answer:3,explain:"D is correct. Pilot fishing (T-2 months): early-look meetings to introduce the equity story and test sentiment — management may participate, no price is set yet. PDIE (T-1 month): analysts distribute their valuation report and hold meetings with investors WITHOUT management present to collect pricing feedback. The price range is calibrated based on PDIE feedback. Key exam point: management is NOT in PDIE meetings."},
+  {q:"A company wants to raise €500m. Market cap is €1bn. Which format is most likely? The company has a highly concentrated PE shareholder base and the deal is M&A related.",opts:["A. ABB (Accelerated Bookbuild)","B. Bought deal","C. Rights issue","D. Marketed offering — secondary"],answer:2,explain:"Rights issue is correct for multiple reasons: (1) €500m = 50% of market cap — a huge amount requiring firm underwriting and deep discount; (2) PE shareholders have high capacity to take up rights or recycle them; (3) M&A-related means a 'structuring' corporate initiative requiring a shareholder-friendly approach; (4) primary (company needs the cash). ABB/bought deal would have a 10% discount cap (France) and couldn't handle 50% of market cap. Marketed secondary is irrelevant (this is primary)."},
+  {q:"An extension clause is exercised on an IPO with a base deal of €200m. The greenshoe is then also fully exercised. What is the maximum total deal size?",opts:["A. €230m","B. €260m","C. €264m","D. €240m"],answer:2,explain:"Extension clause: €200m × 115% = €230m. Greenshoe: 15% of the BASE deal (€200m × 15% = €30m) added on top. Total: €230m + €30m = €260m. BUT: some conventions define greenshoe as 15% of POST-extension → €230m × 15% = €34.5m → total €264.5m. The course slides define the total max as 132% of base = €200m × 132% = €264m. Answer C applies the 132% rule from the slides."},
+  {q:"Why does high stock volatility benefit the issuer of a Convertible Bond (CB) but hurt the issuer of a Mandatory Convertible Bond (MCB)?",opts:["A. Volatility has no effect on either CB or MCB pricing","B. Higher volatility increases the value of the embedded call in CB (better terms for issuer), but makes the call spread in MCB more expensive (worse terms for issuer)","C. Higher volatility decreases CB coupon and increases MCB conversion premium","D. Higher volatility is always bad for the issuer regardless of instrument"],answer:1,explain:"B is correct and comes directly from the slides. In a CB, the embedded CALL OPTION held by the investor becomes MORE valuable when volatility rises (options are worth more with higher vol). To offset this, the issuer can offer a LOWER COUPON — better terms for the issuer. In an MCB with an embedded call spread (to limit investor upside), the call spread becomes MORE EXPENSIVE to structure when volatility is high — the issuer pays more. This is a direct consequence of option pricing theory (Black-Scholes: option value increases with volatility)."}
+];
+
+function buildQCM(){
+  const c=document.getElementById('qcm-container');
+  questions.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.className='qcm-item';
+    d.innerHTML=`<div class="qcm-q">${i+1}. ${q.q}</div>
+      <div class="qcm-opts">${q.opts.map((o,j)=>`<div class="qcm-opt" onclick="answer(this,${i},${j})">
+        <span class="opt-label">${String.fromCharCode(65+j)}</span><span>${o.slice(3)}</span></div>`).join('')}
+      </div>
+      <div class="qcm-explain" id="exp-${i}">${q.explain}</div>`;
+    c.appendChild(d);
+  });
+}
+
+function answer(el,qi,oi){
+  const parent=el.closest('.qcm-item');
+  if(parent.classList.contains('done'))return;
+  parent.classList.add('done');
+  parent.querySelectorAll('.qcm-opt').forEach((o,j)=>{
+    if(j===questions[qi].answer)o.classList.add('correct');
+    else if(j===oi&&j!==questions[qi].answer)o.classList.add('wrong');
+  });
+  document.getElementById('exp-'+qi).classList.add('show');
+}
+
+function show(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+buildQCM();
+</script>
+</body>
+</html>
